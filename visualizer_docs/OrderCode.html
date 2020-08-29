@@ -1,0 +1,1175 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="generator" content="pdoc 0.7.4" />
+    <title>OrderCode API documentation</title>
+    <meta name="description" content="" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    <style>
+        .flex {
+            display: flex !important
+        }
+
+        body {
+            line-height: 1.5em
+        }
+
+        #content {
+            padding: 20px
+        }
+
+        #sidebar {
+            padding: 30px;
+            overflow: hidden
+        }
+
+        .http-server-breadcrumbs {
+            font-size: 130%;
+            margin: 0 0 15px 0
+        }
+
+        #footer {
+            font-size: .75em;
+            padding: 5px 30px;
+            border-top: 1px solid #ddd;
+            text-align: right
+        }
+
+        #footer p {
+            margin: 0 0 0 1em;
+            display: inline-block
+        }
+
+        #footer p:last-child {
+            margin-right: 30px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 300
+        }
+
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.1em
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin: 1em 0 .50em 0
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin: 25px 0 10px 0
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 105%
+        }
+
+        a {
+            color: #058;
+            text-decoration: none;
+            transition: color .3s ease-in-out
+        }
+
+        a:hover {
+            color: #e82
+        }
+
+        .title code {
+            font-weight: bold
+        }
+
+        h2[id^="header-"] {
+            margin-top: 2em
+        }
+
+        .ident {
+            color: #900
+        }
+
+        pre code {
+            background: #f8f8f8;
+            font-size: .8em;
+            line-height: 1.4em
+        }
+
+        code {
+            background: #f2f2f1;
+            padding: 1px 4px;
+            overflow-wrap: break-word
+        }
+
+        h1 code {
+            background: transparent
+        }
+
+        pre {
+            background: #f8f8f8;
+            border: 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 1ex
+        }
+
+        #http-server-module-list {
+            display: flex;
+            flex-flow: column
+        }
+
+        #http-server-module-list div {
+            display: flex
+        }
+
+        #http-server-module-list dt {
+            min-width: 10%
+        }
+
+        #http-server-module-list p {
+            margin-top: 0
+        }
+
+        .toc ul,
+        #index {
+            list-style-type: none;
+            margin: 0;
+            padding: 0
+        }
+
+        #index code {
+            background: transparent
+        }
+
+        #index h3 {
+            border-bottom: 1px solid #ddd
+        }
+
+        #index ul {
+            padding: 0
+        }
+
+        #index h4 {
+            font-weight: bold
+        }
+
+        #index h4+ul {
+            margin-bottom: .6em
+        }
+
+        @media (min-width:200ex) {
+            #index .two-column {
+                column-count: 2
+            }
+        }
+
+        @media (min-width:300ex) {
+            #index .two-column {
+                column-count: 3
+            }
+        }
+
+        dl {
+            margin-bottom: 2em
+        }
+
+        dl dl:last-child {
+            margin-bottom: 4em
+        }
+
+        dd {
+            margin: 0 0 1em 3em
+        }
+
+        #header-classes+dl>dd {
+            margin-bottom: 3em
+        }
+
+        dd dd {
+            margin-left: 2em
+        }
+
+        dd p {
+            margin: 10px 0
+        }
+
+        .name {
+            background: #eee;
+            font-weight: bold;
+            font-size: .85em;
+            padding: 5px 10px;
+            display: inline-block;
+            min-width: 40%
+        }
+
+        .name:hover {
+            background: #e0e0e0
+        }
+
+        .name>span:first-child {
+            white-space: nowrap
+        }
+
+        .name.class>span:nth-child(2) {
+            margin-left: .4em
+        }
+
+        .inherited {
+            color: #999;
+            border-left: 5px solid #eee;
+            padding-left: 1em
+        }
+
+        .inheritance em {
+            font-style: normal;
+            font-weight: bold
+        }
+
+        .desc h2 {
+            font-weight: 400;
+            font-size: 1.25em
+        }
+
+        .desc h3 {
+            font-size: 1em
+        }
+
+        .desc dt code {
+            background: inherit
+        }
+
+        .source summary,
+        .git-link-div {
+            color: #666;
+            text-align: right;
+            font-weight: 400;
+            font-size: .8em;
+            text-transform: uppercase
+        }
+
+        .source summary>* {
+            white-space: nowrap;
+            cursor: pointer
+        }
+
+        .git-link {
+            color: inherit;
+            margin-left: 1em
+        }
+
+        .source pre {
+            max-height: 500px;
+            overflow: auto;
+            margin: 0
+        }
+
+        .source pre code {
+            font-size: 12px;
+            overflow: visible
+        }
+
+        .hlist {
+            list-style: none
+        }
+
+        .hlist li {
+            display: inline
+        }
+
+        .hlist li:after {
+            content: ',\2002'
+        }
+
+        .hlist li:last-child:after {
+            content: none
+        }
+
+        .hlist .hlist {
+            display: inline;
+            padding-left: 1em
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .admonition {
+            padding: .1em .5em;
+            margin-bottom: 1em
+        }
+
+        .admonition-title {
+            font-weight: bold
+        }
+
+        .admonition.note,
+        .admonition.info,
+        .admonition.important {
+            background: #aef
+        }
+
+        .admonition.todo,
+        .admonition.versionadded,
+        .admonition.tip,
+        .admonition.hint {
+            background: #dfd
+        }
+
+        .admonition.warning,
+        .admonition.versionchanged,
+        .admonition.deprecated {
+            background: #fd4
+        }
+
+        .admonition.error,
+        .admonition.danger,
+        .admonition.caution {
+            background: lightpink
+        }
+    </style>
+    <style media="screen and (min-width: 700px)">
+        @media screen and (min-width:700px) {
+            #sidebar {
+                width: 30%
+            }
+
+            #content {
+                width: 70%;
+                max-width: 100ch;
+                padding: 3em 4em;
+                border-left: 1px solid #ddd
+            }
+
+            pre code {
+                font-size: 1em
+            }
+
+            .item .name {
+                font-size: 1em
+            }
+
+            main {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end
+            }
+
+            .toc ul ul,
+            #index ul {
+                padding-left: 1.5em
+            }
+
+            .toc>ul>li {
+                margin-top: .5em
+            }
+        }
+    </style>
+    <style media="print">
+        @media print {
+            #sidebar h1 {
+                page-break-before: always
+            }
+
+            .source {
+                display: none
+            }
+        }
+
+        @media print {
+            * {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important
+            }
+
+            a[href]:after {
+                content: " ("attr(href) ")";
+                font-size: 90%
+            }
+
+            a[href][title]:after {
+                content: none
+            }
+
+            abbr[title]:after {
+                content: " ("attr(title) ")"
+            }
+
+            .ir a:after,
+            a[href^="javascript:"]:after,
+            a[href^="#"]:after {
+                content: ""
+            }
+
+            pre,
+            blockquote {
+                border: 1px solid #999;
+                page-break-inside: avoid
+            }
+
+            thead {
+                display: table-header-group
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid
+            }
+
+            img {
+                max-width: 100% !important
+            }
+
+            @page {
+                margin: 0.5cm
+            }
+
+            p,
+            h2,
+            h3 {
+                orphans: 3;
+                widows: 3
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                page-break-after: avoid
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <article id="content">
+            <header>
+                <h1 class="title">Module <code>OrderCode</code></h1>
+            </header>
+            <section id="section-intro">
+                <details class="source">
+                    <summary>
+                        <span>Expand source code</span>
+                    </summary>
+                    <pre><code class="python"># ****************************************************
+# Copyright: 2020 Team Visualizer (Carlos Miguel Sayao, Connor Bettermann, Issac Greenfield, Madeleine Elyea, Tanner Sundwall, Ted Moore, Prerna Agarwal)
+# License: MIT
+# ****************************************************
+# Purpose:  Lists the command codes and their orders in an IntEnum list, for communication
+# between RasPi units
+#
+# ****************************************************
+
+from enum import IntEnum
+
+
+class OrderCode(IntEnum):
+    &#34;&#34;&#34;An IntEnum class that holds the command codes for communication between
+    RasPi units \n
+        `SHUT_DOWN = 1`
+        `PLAYLIST = 2`
+        `SLOW_DOWN = 3`
+        `SPEED_UP = 4`
+        `LOOP_PLAY = 5`
+        `RESUME_LIST = 6`
+        `RESUME_SPEED = 7`
+        `PING_RESPONSE = 8`
+        `PAUSE_PLAYBACK = 9`
+        `NEXT_VIDEO = 10`
+        `SEND_FILE = 11`
+        `IDLE = 20`
+        `USURP = 66`
+        `FAILED = 77`
+        `NONE = 99`
+
+    Examples:
+
+    `import OrderCode as OrderCode`
+
+    `print(OrderCode.SHUT_DOWN)`
+    `&gt;&gt; OrderCode.SHUT_DOWN`
+
+    `print(OrderCode.SHUT_DOWN.value)`
+    `&gt;&gt; 1`
+
+    `print(OrderCode(1))`
+    `&gt;&gt; OrderCode.SHUT_DOWN`
+    &#34;&#34;&#34;
+    SHUT_DOWN = 1       # Command or response to begin shutdown procedures
+    PLAYLIST = 2        # Indicates new playlist is contained in the message
+    SLOW_DOWN = 3       # Slowdown playback of videos
+    SPEED_UP = 4        # Speedup playback of videos
+    LOOP_PLAY = 5       # Remain on current video or visual indefinitely
+    RESUME_LIST = 6     # Return to normal playback mode
+    RESUME_SPEED = 7    # Resume normal playback speed of videos
+    PING_RESPONSE = 8   # For sending and receiving a response of connection
+    PAUSE_PLAYBACK = 9  # Command to suspend any visual projections
+    NEXT_VIDEO = 10     # Next video
+    SEND_FILE = 11      # Send file
+    IDLE = 20           # Idle
+    USURP = 66          # Tell other RasPi &#34;I am the leader now&#34;
+    FAILED = 77         # Something failed
+    NONE = 99           # None</code></pre>
+                </details>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+                <h2 class="section-title" id="header-classes">Classes</h2>
+                <dl>
+                    <dt id="OrderCode.OrderCode"><code class="flex name class">
+<span>class <span class="ident">OrderCode</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+                    <dd>
+                        <section class="desc">
+                            <p>An IntEnum class that holds the command codes for communication between
+                                RasPi units </p>
+                            <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                            <p>Examples:</p>
+                            <p><code>import OrderCode as OrderCode</code></p>
+                            <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                            <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                <code>&gt;&gt; 1</code></p>
+                            <p><code>print(OrderCode(1))</code>
+                                <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                        </section>
+                        <details class="source">
+                            <summary>
+                                <span>Expand source code</span>
+                            </summary>
+                            <pre><code class="python">class OrderCode(IntEnum):
+    &#34;&#34;&#34;An IntEnum class that holds the command codes for communication between
+    RasPi units \n
+        `SHUT_DOWN = 1`
+        `PLAYLIST = 2`
+        `SLOW_DOWN = 3`
+        `SPEED_UP = 4`
+        `LOOP_PLAY = 5`
+        `RESUME_LIST = 6`
+        `RESUME_SPEED = 7`
+        `PING_RESPONSE = 8`
+        `PAUSE_PLAYBACK = 9`
+        `NEXT_VIDEO = 10`
+        `SEND_FILE = 11`
+        `IDLE = 20`
+        `USURP = 66`
+        `FAILED = 77`
+        `NONE = 99`
+
+    Examples:
+
+    `import OrderCode as OrderCode`
+
+    `print(OrderCode.SHUT_DOWN)`
+    `&gt;&gt; OrderCode.SHUT_DOWN`
+
+    `print(OrderCode.SHUT_DOWN.value)`
+    `&gt;&gt; 1`
+
+    `print(OrderCode(1))`
+    `&gt;&gt; OrderCode.SHUT_DOWN`
+    &#34;&#34;&#34;
+    SHUT_DOWN = 1       # Command or response to begin shutdown procedures
+    PLAYLIST = 2        # Indicates new playlist is contained in the message
+    SLOW_DOWN = 3       # Slowdown playback of videos
+    SPEED_UP = 4        # Speedup playback of videos
+    LOOP_PLAY = 5       # Remain on current video or visual indefinitely
+    RESUME_LIST = 6     # Return to normal playback mode
+    RESUME_SPEED = 7    # Resume normal playback speed of videos
+    PING_RESPONSE = 8   # For sending and receiving a response of connection
+    PAUSE_PLAYBACK = 9  # Command to suspend any visual projections
+    NEXT_VIDEO = 10     # Next video
+    SEND_FILE = 11      # Send file
+    IDLE = 20           # Idle
+    USURP = 66          # Tell other RasPi &#34;I am the leader now&#34;
+    FAILED = 77         # Something failed
+    NONE = 99           # None</code></pre>
+                        </details>
+                        <h3>Ancestors</h3>
+                        <ul class="hlist">
+                            <li>enum.IntEnum</li>
+                            <li>builtins.int</li>
+                            <li>enum.Enum</li>
+                        </ul>
+                        <h3>Class variables</h3>
+                        <dl>
+                            <dt id="OrderCode.OrderCode.FAILED"><code
+                                    class="name">var <span class="ident">FAILED</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.IDLE"><code
+                                    class="name">var <span class="ident">IDLE</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.LOOP_PLAY"><code
+                                    class="name">var <span class="ident">LOOP_PLAY</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.NEXT_VIDEO"><code
+                                    class="name">var <span class="ident">NEXT_VIDEO</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.NONE"><code
+                                    class="name">var <span class="ident">NONE</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.PAUSE_PLAYBACK"><code
+                                    class="name">var <span class="ident">PAUSE_PLAYBACK</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.PING_RESPONSE"><code
+                                    class="name">var <span class="ident">PING_RESPONSE</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.PLAYLIST"><code
+                                    class="name">var <span class="ident">PLAYLIST</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.RESUME_LIST"><code
+                                    class="name">var <span class="ident">RESUME_LIST</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.RESUME_SPEED"><code
+                                    class="name">var <span class="ident">RESUME_SPEED</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.SEND_FILE"><code
+                                    class="name">var <span class="ident">SEND_FILE</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.SHUT_DOWN"><code
+                                    class="name">var <span class="ident">SHUT_DOWN</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.SLOW_DOWN"><code
+                                    class="name">var <span class="ident">SLOW_DOWN</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.SPEED_UP"><code
+                                    class="name">var <span class="ident">SPEED_UP</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                            <dt id="OrderCode.OrderCode.USURP"><code
+                                    class="name">var <span class="ident">USURP</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An IntEnum class that holds the command codes for communication between
+                                        RasPi units </p>
+                                    <pre><code>`SHUT_DOWN = 1`
+`PLAYLIST = 2`
+`SLOW_DOWN = 3`
+`SPEED_UP = 4`
+`LOOP_PLAY = 5`
+`RESUME_LIST = 6`
+`RESUME_SPEED = 7`
+`PING_RESPONSE = 8`
+`PAUSE_PLAYBACK = 9`
+`NEXT_VIDEO = 10`
+`SEND_FILE = 11`
+`IDLE = 20`
+`USURP = 66`
+`FAILED = 77`
+`NONE = 99`
+</code></pre>
+                                    <p>Examples:</p>
+                                    <p><code>import OrderCode as OrderCode</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN)</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                    <p><code>print(OrderCode.SHUT_DOWN.value)</code>
+                                        <code>&gt;&gt; 1</code></p>
+                                    <p><code>print(OrderCode(1))</code>
+                                        <code>&gt;&gt; OrderCode.SHUT_DOWN</code></p>
+                                </section>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </section>
+        </article>
+        <nav id="sidebar">
+            <h1><a title="DocIndex" href="DocIndex.html">&#8592;Back</a></h1>
+            <h1>Index</h1>
+            <div class="toc">
+                <ul></ul>
+            </div>
+            <ul id="index">
+                <li>
+                    <h3><a href="#header-classes">Classes</a></h3>
+                    <ul>
+                        <li>
+                            <h4><code><a title="OrderCode.OrderCode" href="#OrderCode.OrderCode">OrderCode</a></code>
+                            </h4>
+                            <ul class="two-column">
+                                <li><code><a title="OrderCode.OrderCode.FAILED" href="#OrderCode.OrderCode.FAILED">FAILED</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.IDLE" href="#OrderCode.OrderCode.IDLE">IDLE</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.LOOP_PLAY" href="#OrderCode.OrderCode.LOOP_PLAY">LOOP_PLAY</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.NEXT_VIDEO" href="#OrderCode.OrderCode.NEXT_VIDEO">NEXT_VIDEO</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.NONE" href="#OrderCode.OrderCode.NONE">NONE</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.PAUSE_PLAYBACK" href="#OrderCode.OrderCode.PAUSE_PLAYBACK">PAUSE_PLAYBACK</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.PING_RESPONSE" href="#OrderCode.OrderCode.PING_RESPONSE">PING_RESPONSE</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.PLAYLIST" href="#OrderCode.OrderCode.PLAYLIST">PLAYLIST</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.RESUME_LIST" href="#OrderCode.OrderCode.RESUME_LIST">RESUME_LIST</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.RESUME_SPEED" href="#OrderCode.OrderCode.RESUME_SPEED">RESUME_SPEED</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.SEND_FILE" href="#OrderCode.OrderCode.SEND_FILE">SEND_FILE</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.SHUT_DOWN" href="#OrderCode.OrderCode.SHUT_DOWN">SHUT_DOWN</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.SLOW_DOWN" href="#OrderCode.OrderCode.SLOW_DOWN">SLOW_DOWN</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.SPEED_UP" href="#OrderCode.OrderCode.SPEED_UP">SPEED_UP</a></code>
+                                </li>
+                                <li><code><a title="OrderCode.OrderCode.USURP" href="#OrderCode.OrderCode.USURP">USURP</a></code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer id="footer">
+        <p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.4</a>.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+</body>
+
+</html>

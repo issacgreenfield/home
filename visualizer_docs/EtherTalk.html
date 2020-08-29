@@ -1,0 +1,1947 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="generator" content="pdoc 0.7.4" />
+    <title>EtherTalk API documentation</title>
+    <meta name="description" content="" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    <style>
+        .flex {
+            display: flex !important
+        }
+
+        body {
+            line-height: 1.5em
+        }
+
+        #content {
+            padding: 20px
+        }
+
+        #sidebar {
+            padding: 30px;
+            overflow: hidden
+        }
+
+        .http-server-breadcrumbs {
+            font-size: 130%;
+            margin: 0 0 15px 0
+        }
+
+        #footer {
+            font-size: .75em;
+            padding: 5px 30px;
+            border-top: 1px solid #ddd;
+            text-align: right
+        }
+
+        #footer p {
+            margin: 0 0 0 1em;
+            display: inline-block
+        }
+
+        #footer p:last-child {
+            margin-right: 30px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 300
+        }
+
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.1em
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin: 1em 0 .50em 0
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin: 25px 0 10px 0
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 105%
+        }
+
+        a {
+            color: #058;
+            text-decoration: none;
+            transition: color .3s ease-in-out
+        }
+
+        a:hover {
+            color: #e82
+        }
+
+        .title code {
+            font-weight: bold
+        }
+
+        h2[id^="header-"] {
+            margin-top: 2em
+        }
+
+        .ident {
+            color: #900
+        }
+
+        pre code {
+            background: #f8f8f8;
+            font-size: .8em;
+            line-height: 1.4em
+        }
+
+        code {
+            background: #f2f2f1;
+            padding: 1px 4px;
+            overflow-wrap: break-word
+        }
+
+        h1 code {
+            background: transparent
+        }
+
+        pre {
+            background: #f8f8f8;
+            border: 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 1ex
+        }
+
+        #http-server-module-list {
+            display: flex;
+            flex-flow: column
+        }
+
+        #http-server-module-list div {
+            display: flex
+        }
+
+        #http-server-module-list dt {
+            min-width: 10%
+        }
+
+        #http-server-module-list p {
+            margin-top: 0
+        }
+
+        .toc ul,
+        #index {
+            list-style-type: none;
+            margin: 0;
+            padding: 0
+        }
+
+        #index code {
+            background: transparent
+        }
+
+        #index h3 {
+            border-bottom: 1px solid #ddd
+        }
+
+        #index ul {
+            padding: 0
+        }
+
+        #index h4 {
+            font-weight: bold
+        }
+
+        #index h4+ul {
+            margin-bottom: .6em
+        }
+
+        @media (min-width:200ex) {
+            #index .two-column {
+                column-count: 2
+            }
+        }
+
+        @media (min-width:300ex) {
+            #index .two-column {
+                column-count: 3
+            }
+        }
+
+        dl {
+            margin-bottom: 2em
+        }
+
+        dl dl:last-child {
+            margin-bottom: 4em
+        }
+
+        dd {
+            margin: 0 0 1em 3em
+        }
+
+        #header-classes+dl>dd {
+            margin-bottom: 3em
+        }
+
+        dd dd {
+            margin-left: 2em
+        }
+
+        dd p {
+            margin: 10px 0
+        }
+
+        .name {
+            background: #eee;
+            font-weight: bold;
+            font-size: .85em;
+            padding: 5px 10px;
+            display: inline-block;
+            min-width: 40%
+        }
+
+        .name:hover {
+            background: #e0e0e0
+        }
+
+        .name>span:first-child {
+            white-space: nowrap
+        }
+
+        .name.class>span:nth-child(2) {
+            margin-left: .4em
+        }
+
+        .inherited {
+            color: #999;
+            border-left: 5px solid #eee;
+            padding-left: 1em
+        }
+
+        .inheritance em {
+            font-style: normal;
+            font-weight: bold
+        }
+
+        .desc h2 {
+            font-weight: 400;
+            font-size: 1.25em
+        }
+
+        .desc h3 {
+            font-size: 1em
+        }
+
+        .desc dt code {
+            background: inherit
+        }
+
+        .source summary,
+        .git-link-div {
+            color: #666;
+            text-align: right;
+            font-weight: 400;
+            font-size: .8em;
+            text-transform: uppercase
+        }
+
+        .source summary>* {
+            white-space: nowrap;
+            cursor: pointer
+        }
+
+        .git-link {
+            color: inherit;
+            margin-left: 1em
+        }
+
+        .source pre {
+            max-height: 500px;
+            overflow: auto;
+            margin: 0
+        }
+
+        .source pre code {
+            font-size: 12px;
+            overflow: visible
+        }
+
+        .hlist {
+            list-style: none
+        }
+
+        .hlist li {
+            display: inline
+        }
+
+        .hlist li:after {
+            content: ',\2002'
+        }
+
+        .hlist li:last-child:after {
+            content: none
+        }
+
+        .hlist .hlist {
+            display: inline;
+            padding-left: 1em
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .admonition {
+            padding: .1em .5em;
+            margin-bottom: 1em
+        }
+
+        .admonition-title {
+            font-weight: bold
+        }
+
+        .admonition.note,
+        .admonition.info,
+        .admonition.important {
+            background: #aef
+        }
+
+        .admonition.todo,
+        .admonition.versionadded,
+        .admonition.tip,
+        .admonition.hint {
+            background: #dfd
+        }
+
+        .admonition.warning,
+        .admonition.versionchanged,
+        .admonition.deprecated {
+            background: #fd4
+        }
+
+        .admonition.error,
+        .admonition.danger,
+        .admonition.caution {
+            background: lightpink
+        }
+    </style>
+    <style media="screen and (min-width: 700px)">
+        @media screen and (min-width:700px) {
+            #sidebar {
+                width: 30%
+            }
+
+            #content {
+                width: 70%;
+                max-width: 100ch;
+                padding: 3em 4em;
+                border-left: 1px solid #ddd
+            }
+
+            pre code {
+                font-size: 1em
+            }
+
+            .item .name {
+                font-size: 1em
+            }
+
+            main {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end
+            }
+
+            .toc ul ul,
+            #index ul {
+                padding-left: 1.5em
+            }
+
+            .toc>ul>li {
+                margin-top: .5em
+            }
+        }
+    </style>
+    <style media="print">
+        @media print {
+            #sidebar h1 {
+                page-break-before: always
+            }
+
+            .source {
+                display: none
+            }
+        }
+
+        @media print {
+            * {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important
+            }
+
+            a[href]:after {
+                content: " ("attr(href) ")";
+                font-size: 90%
+            }
+
+            a[href][title]:after {
+                content: none
+            }
+
+            abbr[title]:after {
+                content: " ("attr(title) ")"
+            }
+
+            .ir a:after,
+            a[href^="javascript:"]:after,
+            a[href^="#"]:after {
+                content: ""
+            }
+
+            pre,
+            blockquote {
+                border: 1px solid #999;
+                page-break-inside: avoid
+            }
+
+            thead {
+                display: table-header-group
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid
+            }
+
+            img {
+                max-width: 100% !important
+            }
+
+            @page {
+                margin: 0.5cm
+            }
+
+            p,
+            h2,
+            h3 {
+                orphans: 3;
+                widows: 3
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                page-break-after: avoid
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <article id="content">
+            <header>
+                <h1 class="title">Module <code>EtherTalk</code></h1>
+            </header>
+            <section id="section-intro">
+                <details class="source">
+                    <summary>
+                        <span>Expand source code</span>
+                    </summary>
+                    <pre><code class="python"># ****************************************************
+# Purpose:  Manages the ethernet connection between pis.
+#           Set up hostname, port.
+#           Establish connection.
+#           Listen for messages.
+#           Send messages.
+#           To connect pis, add to constants.py:KNOWN_IPS
+#
+# Sources:  Disable WiFi, https://raspberrypi.stackexchange.com/q/43720
+#           Send/Receive files, https://www.thepythoncode.com/article/send-receive-files-using-sockets-python
+#           Netifaces: https://pypi.org/project/netifaces/, Has open-source MIT license
+#           Socket doc for 3.7.6, https://docs.python.org/3.7/library/socket.html
+#           Concurrent Futures, https://docs.python.org/3.7/library/concurrent.futures.html
+#
+# Debug     [+] process happening
+# Notes:    [*] network process
+#           [!] important
+#           [&amp;] address
+#           [x] something broke...
+#           Asserts show places with high probability of failure along
+#           with &#39;notes&#39;.
+#
+# ****************************************************
+
+import os
+import sys
+import time
+import socket
+import pickle
+import traceback
+import threading
+from ast import literal_eval
+from datetime import datetime
+from datetime import timedelta
+import netifaces as ni
+from OrderCode import *
+from constants import *
+from ErrorHandler import ErrorHandler
+from enum import IntEnum
+
+
+Talk = IntEnum(&#39;Talk&#39;, &#39;HEADER&#39;)
+
+
+class EtherTalk:
+
+    def __init__(self, is_leader=True, error_handler=None, test=False, verbose=False):
+        &#34;&#34;&#34; Class manages ethernet communication.
+
+        Args:
+            error_handler (ErrorHandler class) Logging class for errors.
+            is_leader (bool): Indicate if leader or not, default True.
+            test (bool): Indicate if testing on localhost, default False.
+            verbose (bool): Indicate verbose output, default False.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        self.test = test
+        self.eh = error_handler
+        self.v = verbose
+        self.ip = None
+        self.serverip = None
+        self.hostip = None
+        self.netmask = None
+        # Scan network to instantiate self.serverip and self.ip
+        self.scan()
+        self.port = 5001
+        self.socket = None
+        # Listener ip, reachable on all ips
+        self.server_host = &#34;0.0.0.0&#34;
+
+    def get_status(self):
+        print(f&#34;[!] self.ip:       {self.ip}&#34;)
+        print(f&#34;[!] self.serverip: {self.serverip}\n&#34;)
+
+    def __isup(self, addr) -&gt; int:
+        &#34;&#34;&#34; Check to see if an address exists on network.
+
+        Args:
+            addr (str): address to ping
+
+        Returns:
+            int: 0 if down, 1 if up
+        &#34;&#34;&#34;
+        # Subshell command. &#34;-c&#34; stops after sending 1 packet, redirect
+        # output to the almighty blackhole.
+        # os.system() returns subshell returncode.
+        res = os.system(&#34;ping -c 1 -q &#34; + addr + &#34; &gt;&gt; /dev/null 2&gt;&amp;1&#34;)
+        if res == 0:
+            print(f&#34;[+] {addr} is up!&#34;)
+            return 1
+        else:
+            print(f&#34;[x] {addr} is down&#34;)
+            return 0
+
+    def scan(self) -&gt; bool:
+        &#34;&#34;&#34; Scan for active network hosts in constants.KNOWN_IPS.
+        If found, set self.serverip to found ip, return True. There is someone
+        on LAN, but we don&#39;t yet know if it is accepting connections.
+        Must be used after instantiating EtherTalk class.
+
+        Args: 
+            None
+
+        Returns:
+            bool: True indicates success, False indicates nobody there.
+        &#34;&#34;&#34;
+        if self.test == True:
+            # Loopback device for local
+            interface = ni.ifaddresses(&#39;lo&#39;)[ni.AF_INET][0]
+            self.ip = interface[&#39;addr&#39;]
+            self.serverip = &#34;localhost&#34;
+            return True
+        else:
+            # Rpi specific ethernet interface &#39;eth0&#39;.
+            # This fails and ret 0 if there is no ethernet conn.
+            try:
+                interface = ni.ifaddresses(&#39;eth0&#39;)[ni.AF_INET][0]
+                self.ip = interface[&#39;addr&#39;]
+            except:
+                self.ip = None
+                self.serverip = None
+                return False
+        print(&#34;[*] Scanning for ips on lan&#34;)
+        print(&#34;[*] My ip:&#34;, self.ip)
+        for ip in KNOWN_IPS:
+            print(&#34;[*] Pinging&#34;, ip)
+            if self.ip == ip:
+                print(&#34;[!] SAME!&#34;)
+                continue
+            if self.__isup(ip):
+                print(f&#34;[+] Active host found at {ip}.\n&#34;)
+                self.serverip = ip
+                return True
+        print()
+        return False
+
+    def ping(self, timeout_time=TIMEOUT_DURATION) -&gt; int:
+        &#34;&#34;&#34; Scan network, if active found we know we are not the first to start.
+
+        Args:
+            None
+
+        Returns:
+            int: 0 on connection, 1 on nothing found
+        &#34;&#34;&#34;
+        loop_end_time = datetime.now() + timedelta(minutes=timeout_time)
+        # Loop for TIMEOUT_DURATION minutes or until we first connection.
+        while datetime.now() &lt; loop_end_time:
+            # Try to set serverip
+            print(&#34;Ping trying to connect&#34;)
+            if self.scan():
+                return 0
+        return 1
+
+    def __connect(self) -&gt; int:
+        &#34;&#34;&#34; Attempt to establish connection preceding a send(). Two cases:
+
+        If we have a serverip (follower), connect to to it with our
+        serverip and port. If we fail to connect to that follower, it might
+        have gone down, return 1.
+        
+        If we did not have a follower, scan network. If there is someone on
+        the LAN, set serverip to that host, return 0. If the scan comes
+        back negative, we know there is **still** nobody out there.
+
+        Args:
+            None
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        &#34;&#34;&#34;
+        time.sleep(.1)
+        # Create TCP server socket, set to reuse address and disable Nagle
+        self.socket = socket.socket()
+        # Set timeout for receiving confirmation
+        self.socket.settimeout(CONF_TIMEOUT)
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        # If we a follower, try to connect to it
+        if self.serverip is not None:
+            try:  # Fails when connection refused
+                print(f&#34;[+] Connecting to {self.serverip}:{self.port}&#34;)
+                self.socket.connect((self.serverip, self.port))
+                print(&#34;[+] Connected.&#34;)
+                return 0
+            except Exception as e:
+                # Our serverip is now failing, that means follower is down
+                print(f&#34;[x] {str(e)}&#34;)
+                # Set serverip to None because we no longer have follower
+                self.serverip = None
+                # We have no follower, no need for socket
+                self.socket.close()
+                # Return 1 indicating we lost a follower
+                return 1
+        else:   # If we don&#39;t have a follower, try scanning for one
+            # Try scanning for ips
+            stat = self.scan() 
+            # Scan returns False, there is nobody on LAN
+            if stat == False:
+                self.socket.close()
+                return 2
+            # Scan returns True, we have a follower after having had no follower.
+            # We then want to try to connect again so our send function can try
+            # again.
+            elif stat == True:
+                try:
+                    self.socket.connect((self.serverip, self.port))
+                    return 0
+                # The new serverip we acquired didn&#39;t work! Just call it
+                # and return 1...
+                except Exception as e:
+                    self.serverip = None
+                    self.socket.close()
+                    return 1
+        print(&#34;[[]] EtherTalk says: &#39;We should not&#39;ve gotten here!!&#39;&#34;)
+        sys.exit()
+        
+    def __close(self) -&gt; int:
+        &#34;&#34;&#34;
+        Close our socket
+
+        Returns  : (int) 0 success, 1 error
+        &#34;&#34;&#34;
+        try:
+            self.socket.close()
+            return 0
+        except:
+            return 1
+    
+    def __getconf(self, kind) -&gt; None:
+        &#34;&#34;&#34;Wait for confirmation.
+
+        Args:
+            kind (Talk IntEnum): type of conf we want
+        &#34;&#34;&#34;
+        print(f&#34;[*] Listening for {kind.name} conf&#34;)
+        try:
+            print(&#34;Entered getconf&#34;, time.time())
+            conf = self.socket.recv(BUFFER_SIZE)
+            conf = pickle.loads(conf)
+            if conf == kind:
+                print(f&#34;[!] Received {Talk(conf)}&#34;)
+                print(f&#34;[+] Correctly received conf&#34;)
+            else:
+                print(f&#34;[x] Did not correctly receive conf&#34;)
+                print(f&#34;[x] Wanted {kind}, conf received: {Talk(conf)}&#34;)
+        except EOFError:
+            print(&#34;EOFerror&#34;, conf)
+        except ConnectionResetError as e:
+            print(f&#34;[!] Connection closed before handshake could finish!&#34;)
+        except Exception as e:
+            print(f&#34;[x] Could not get conf {e}&#34;)
+    
+    def __sendconf(self, kind, client_socket) -&gt; None:
+        &#34;&#34;&#34;Send confirmation.
+
+        Args:
+            kind (Talk IntEnum): type of conf to send
+            client_socket (socket obj): send conf through client connection
+        &#34;&#34;&#34;
+        print(f&#34;[*] Sending conf {kind.name}&#34;)
+        conf = pickle.dumps(kind.value)
+        print(&#34;KIND&#34;,kind.value)
+        print(&#34;Entered sendconf&#34;, time.time())
+        client_socket.sendall(conf)
+
+    def send(self, header) -&gt; int:
+        &#34;&#34;&#34; Send message to the other pi.
+        
+        Check that message is valid, then connect and send message. Then wait
+        for confirmation.
+
+        Args:
+            header (dict): dictionary of header info
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        3 connection was ok, but send failed.
+
+        Example:
+            `from OrderCode import OrderCode`
+            `EtherTalkObject.send(OrderCode.SHUT_DOWN)`
+
+        &#34;&#34;&#34;
+        assert(type(header[&#39;code&#39;]) == type(OrderCode.SHUT_DOWN.value))
+
+        print(f&#34;\n[+] Sending {header[&#39;code&#39;]}&#34;)
+
+        # Keep trying to connect until CONF_TIMEOUT
+        stat = self.__connect()
+        tf = time.time() + CONF_TIMEOUT
+        while stat != 0 and time.time() &lt; tf:
+            stat = self.__connect()
+            print(f&#34;[!] send connect stat {stat}&#34;)
+        # If we&#39;ve connect was not successful upon timeout, return stat
+        if stat &gt; 0:
+            return stat
+
+        try:
+            # Pickle our payload, send it, then confirm
+            self.socket.sendall(pickle.dumps(f&#34;{header}{HEADER}&#34;))
+            self.__getconf(Talk.HEADER)
+            return 0
+        except Exception as e:
+            print(f&#34;[x] Failed to send {e}&#34;)
+            self.socket.close()
+            return 3
+
+    def send_file(self, header, filename) -&gt; int:
+        &#34;&#34;&#34; Send file to connected pi. Attempts to establish connection, then
+        sends file. If no connection (no serverip), then scans once to attempt
+        setting serverip to active host on network.
+
+        Args:
+            header (dict): Generated by MessageMan. We need to add filename
+                and filsize.
+            filename (str): Path to file, relative to sender. This will be
+                stripped away.
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        3 connection was ok, but send failed.
+
+            message =
+                {
+                    &#34;code&#34;       : (OrderCode),
+                    &#34;sent_time&#34;  : (float)),
+                    &#34;start_time&#34; : (start_time),
+                    &#34;message&#34;    : (input_message)
+                }                
+        &#34;&#34;&#34;
+        print(f&#34;\n[!] Sending {filename}&#34;)
+
+        assert(os.path.isfile(filename))
+
+        # Keep trying to connect until CONF_TIMEOUT
+        stat = self.__connect()
+        tf = time.time() + CONF_TIMEOUT
+        while stat != 0 and (tf-time.time()) &gt; 0:
+            stat = self.__connect()
+            print(f&#34;[!] send connect stat {stat}&#34;)
+        # If we&#39;ve connect was not successful upon timeout, return stat
+        if stat &gt; 0:
+            return stat
+        
+        # Put file name and size into header (to let follower know we&#39;re
+        # about to send a file)
+        header[&#39;file&#39;] = filename if filename else &#34;&#34;
+        header[&#39;filesize&#39;] = os.path.getsize(filename) if filename else &#34;&#34;
+
+        filesize = header[&#39;filesize&#39;]
+        try:
+            start = time.time()
+
+            # Send our header declaring a file is to be sent
+            package = pickle.dumps(f&#34;{header}{HEADER}&#34;)
+            self.socket.sendall(package)
+
+            self.__getconf(Talk.HEADER)
+
+            print(&#34;[*] Sending file.&#34;)
+            f = open(filename, &#39;rb&#39;)
+            bytes_sent = self.socket.sendfile(f)
+
+            print(f&#34;[!] Bytes sent {bytes_sent}&#34;)
+            if bytes_sent - filesize != 0:
+                print(&#34;[x] Something went wrong with our sending!&#34;)
+            f.close()
+
+            end = time.time()
+            print(f&#34;[!] Sent in {end-start}s&#34;)
+
+            print(f&#34;[+] {filename} sent&#34;)
+            self.socket.close()
+            return 0
+        except Exception as e:
+            self.eh.log_error(e)
+            print(f&#34;[x] Sending file error: {e}&#34;)
+            print(&#34;[x] Failed to send file.&#34;)
+            return 3
+
+    def listen(self, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Listener that spawns threads for PiMan. When a header is received,
+        spawn a client thread to manage connection.
+
+        Args:
+            path (str): optional path to write received file to.
+
+        Returns:
+            tuple (int, dict): int 0 Success, &gt; 0 failure,
+        &#34;&#34;&#34;
+        print(&#34;\nListen&#34;)
+        # Create TCP server socket, set to reuse address and disable Nagle
+        self.socket = socket.socket()
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+        # Bind socket to our local address and port
+        self.socket.bind((self.server_host, self.port))
+        # Accept 5 connections
+        self.socket.listen(10)
+        print(f&#34;[*] Listening as {self.server_host}:{self.port}&#34;)
+
+        # Accept connection and create new socket representing connection
+        try:
+            client_socket, address = self.socket.accept()
+        except Exception as e:
+            return 2, {&#39;code&#39;: OrderCode.FAILED.value}
+
+        print(f&#34;[+] {address} is connected.&#34;)
+        client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+        status, header = self.__client_thread(client_socket, path)
+
+        client_socket.close()
+        print(&#34;[x] Closed client socket.&#34;)
+        self.socket.close()
+        print(&#34;[x] Closed main socket.&#34;)
+        return (status, header)
+
+    def __client_thread(self, client_socket, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Client thread to handle input. Receive with given client socket.
+
+        Args:
+            client_socket (socket): Client socket
+            path (str): optional path to write to. Default to current working 
+            dir.
+
+        Returns:
+            tuple (int, dict): 0 success, 1 error and dict of header.
+        &#34;&#34;&#34;
+        print(f&#34;[*] Client thread&#34;)
+
+        package = client_socket.recv(BUFFER_SIZE)
+        # NOTE: Sometimes file gets sent with header. Turned off Nagle&#39;s
+        #       algorithm, but for very small files it may send the file
+        #       with the header.
+        header, payload = pickle.loads(package).split(HEADER)
+        header = literal_eval(header)  # Load the header
+        code = header[&#39;code&#39;]  # Evaluate code
+        print(f&#34;[+] Code: {header[&#39;code&#39;]}&#34;)
+        if header[&#39;message&#39;]:
+            print(f&#34;[!] Message: {header[&#39;message&#39;]}&#34;)
+        # Confirm payload secure
+        print(&#34;[*] Sending conf&#34;)
+        self.__sendconf(Talk.HEADER, client_socket)
+        # If we&#39;re getting a file, pass to receive_file()
+        if code == OrderCode.SEND_FILE.value:
+            return self.__receive_file(header, payload, client_socket, path)
+
+        return 0, header
+
+    def __receive_file(self, header, payload, client_socket, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Receive file from pi. Listens on all ips. If not successful, 
+        dictionary will be empty.
+
+        Args:
+            header (dict): header information
+            payload (str): files sometimes catted to header
+            client_socket (socket): 
+            path (str): optional. Default to cwd.
+
+        Returns:
+            tuple (int, dict): 0 success, 1 error and header
+        &#34;&#34;&#34;
+        # Receive file info using client socket, not server socket
+        filename = header[&#39;file&#39;]
+        filesize = header[&#39;filesize&#39;]
+        filename = os.path.basename(filename)
+        filename = path + filename
+        filesize = int(filesize)
+
+        print(f&#34;[!] Receiving {filename}, size {filesize}&#34;)
+
+        try:
+            start = time.time()
+
+            f = open(filename, &#39;wb&#39;)
+            while True:
+                bytes_read = client_socket.recv(BUFFER_SIZE)
+                if not bytes_read:
+                    break
+                f.write(bytes_read)
+            f.close()
+
+            end = time.time()
+            print(f&#34;[!] Received in {end-start}s&#34;)
+
+            print(f&#34;[+] Received {filename}&#34;)
+
+            return (0, header)
+        except Exception as e:
+            self.eh.log_error(e)
+            print(&#34;[x] Failed to receive file.&#34;)
+            return (1, {})</code></pre>
+                </details>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+                <h2 class="section-title" id="header-classes">Classes</h2>
+                <dl>
+                    <dt id="EtherTalk.EtherTalk"><code class="flex name class">
+<span>class <span class="ident">EtherTalk</span></span>
+<span>(</span><span>is_leader=True, error_handler=None, test=False, verbose=False)</span>
+</code></dt>
+                    <dd>
+                        <section class="desc">
+                            <p>Class manages ethernet communication.</p>
+                            <h2 id="args">Args</h2>
+                            <dl>
+                                <dt>error_handler (ErrorHandler class) Logging class for errors.</dt>
+                                <dt><strong><code>is_leader</code></strong> :&ensp;<code>bool</code></dt>
+                                <dd>Indicate if leader or not, default True.</dd>
+                                <dt><strong><code>test</code></strong> :&ensp;<code>bool</code></dt>
+                                <dd>Indicate if testing on localhost, default False.</dd>
+                                <dt><strong><code>verbose</code></strong> :&ensp;<code>bool</code></dt>
+                                <dd>Indicate verbose output, default False.</dd>
+                            </dl>
+                            <h2 id="returns">Returns</h2>
+                            <dl>
+                                <dt><code>None</code></dt>
+                                <dd>&nbsp;</dd>
+                            </dl>
+                        </section>
+                        <details class="source">
+                            <summary>
+                                <span>Expand source code</span>
+                            </summary>
+                            <pre><code class="python">class EtherTalk:
+
+    def __init__(self, is_leader=True, error_handler=None, test=False, verbose=False):
+        &#34;&#34;&#34; Class manages ethernet communication.
+
+        Args:
+            error_handler (ErrorHandler class) Logging class for errors.
+            is_leader (bool): Indicate if leader or not, default True.
+            test (bool): Indicate if testing on localhost, default False.
+            verbose (bool): Indicate verbose output, default False.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        self.test = test
+        self.eh = error_handler
+        self.v = verbose
+        self.ip = None
+        self.serverip = None
+        self.hostip = None
+        self.netmask = None
+        # Scan network to instantiate self.serverip and self.ip
+        self.scan()
+        self.port = 5001
+        self.socket = None
+        # Listener ip, reachable on all ips
+        self.server_host = &#34;0.0.0.0&#34;
+
+    def get_status(self):
+        print(f&#34;[!] self.ip:       {self.ip}&#34;)
+        print(f&#34;[!] self.serverip: {self.serverip}\n&#34;)
+
+    def __isup(self, addr) -&gt; int:
+        &#34;&#34;&#34; Check to see if an address exists on network.
+
+        Args:
+            addr (str): address to ping
+
+        Returns:
+            int: 0 if down, 1 if up
+        &#34;&#34;&#34;
+        # Subshell command. &#34;-c&#34; stops after sending 1 packet, redirect
+        # output to the almighty blackhole.
+        # os.system() returns subshell returncode.
+        res = os.system(&#34;ping -c 1 -q &#34; + addr + &#34; &gt;&gt; /dev/null 2&gt;&amp;1&#34;)
+        if res == 0:
+            print(f&#34;[+] {addr} is up!&#34;)
+            return 1
+        else:
+            print(f&#34;[x] {addr} is down&#34;)
+            return 0
+
+    def scan(self) -&gt; bool:
+        &#34;&#34;&#34; Scan for active network hosts in constants.KNOWN_IPS.
+        If found, set self.serverip to found ip, return True. There is someone
+        on LAN, but we don&#39;t yet know if it is accepting connections.
+        Must be used after instantiating EtherTalk class.
+
+        Args: 
+            None
+
+        Returns:
+            bool: True indicates success, False indicates nobody there.
+        &#34;&#34;&#34;
+        if self.test == True:
+            # Loopback device for local
+            interface = ni.ifaddresses(&#39;lo&#39;)[ni.AF_INET][0]
+            self.ip = interface[&#39;addr&#39;]
+            self.serverip = &#34;localhost&#34;
+            return True
+        else:
+            # Rpi specific ethernet interface &#39;eth0&#39;.
+            # This fails and ret 0 if there is no ethernet conn.
+            try:
+                interface = ni.ifaddresses(&#39;eth0&#39;)[ni.AF_INET][0]
+                self.ip = interface[&#39;addr&#39;]
+            except:
+                self.ip = None
+                self.serverip = None
+                return False
+        print(&#34;[*] Scanning for ips on lan&#34;)
+        print(&#34;[*] My ip:&#34;, self.ip)
+        for ip in KNOWN_IPS:
+            print(&#34;[*] Pinging&#34;, ip)
+            if self.ip == ip:
+                print(&#34;[!] SAME!&#34;)
+                continue
+            if self.__isup(ip):
+                print(f&#34;[+] Active host found at {ip}.\n&#34;)
+                self.serverip = ip
+                return True
+        print()
+        return False
+
+    def ping(self, timeout_time=TIMEOUT_DURATION) -&gt; int:
+        &#34;&#34;&#34; Scan network, if active found we know we are not the first to start.
+
+        Args:
+            None
+
+        Returns:
+            int: 0 on connection, 1 on nothing found
+        &#34;&#34;&#34;
+        loop_end_time = datetime.now() + timedelta(minutes=timeout_time)
+        # Loop for TIMEOUT_DURATION minutes or until we first connection.
+        while datetime.now() &lt; loop_end_time:
+            # Try to set serverip
+            print(&#34;Ping trying to connect&#34;)
+            if self.scan():
+                return 0
+        return 1
+
+    def __connect(self) -&gt; int:
+        &#34;&#34;&#34; Attempt to establish connection preceding a send(). Two cases:
+
+        If we have a serverip (follower), connect to to it with our
+        serverip and port. If we fail to connect to that follower, it might
+        have gone down, return 1.
+        
+        If we did not have a follower, scan network. If there is someone on
+        the LAN, set serverip to that host, return 0. If the scan comes
+        back negative, we know there is **still** nobody out there.
+
+        Args:
+            None
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        &#34;&#34;&#34;
+        time.sleep(.1)
+        # Create TCP server socket, set to reuse address and disable Nagle
+        self.socket = socket.socket()
+        # Set timeout for receiving confirmation
+        self.socket.settimeout(CONF_TIMEOUT)
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+        # If we a follower, try to connect to it
+        if self.serverip is not None:
+            try:  # Fails when connection refused
+                print(f&#34;[+] Connecting to {self.serverip}:{self.port}&#34;)
+                self.socket.connect((self.serverip, self.port))
+                print(&#34;[+] Connected.&#34;)
+                return 0
+            except Exception as e:
+                # Our serverip is now failing, that means follower is down
+                print(f&#34;[x] {str(e)}&#34;)
+                # Set serverip to None because we no longer have follower
+                self.serverip = None
+                # We have no follower, no need for socket
+                self.socket.close()
+                # Return 1 indicating we lost a follower
+                return 1
+        else:   # If we don&#39;t have a follower, try scanning for one
+            # Try scanning for ips
+            stat = self.scan() 
+            # Scan returns False, there is nobody on LAN
+            if stat == False:
+                self.socket.close()
+                return 2
+            # Scan returns True, we have a follower after having had no follower.
+            # We then want to try to connect again so our send function can try
+            # again.
+            elif stat == True:
+                try:
+                    self.socket.connect((self.serverip, self.port))
+                    return 0
+                # The new serverip we acquired didn&#39;t work! Just call it
+                # and return 1...
+                except Exception as e:
+                    self.serverip = None
+                    self.socket.close()
+                    return 1
+        print(&#34;[[]] EtherTalk says: &#39;We should not&#39;ve gotten here!!&#39;&#34;)
+        sys.exit()
+        
+    def __close(self) -&gt; int:
+        &#34;&#34;&#34;
+        Close our socket
+
+        Returns  : (int) 0 success, 1 error
+        &#34;&#34;&#34;
+        try:
+            self.socket.close()
+            return 0
+        except:
+            return 1
+    
+    def __getconf(self, kind) -&gt; None:
+        &#34;&#34;&#34;Wait for confirmation.
+
+        Args:
+            kind (Talk IntEnum): type of conf we want
+        &#34;&#34;&#34;
+        print(f&#34;[*] Listening for {kind.name} conf&#34;)
+        try:
+            print(&#34;Entered getconf&#34;, time.time())
+            conf = self.socket.recv(BUFFER_SIZE)
+            conf = pickle.loads(conf)
+            if conf == kind:
+                print(f&#34;[!] Received {Talk(conf)}&#34;)
+                print(f&#34;[+] Correctly received conf&#34;)
+            else:
+                print(f&#34;[x] Did not correctly receive conf&#34;)
+                print(f&#34;[x] Wanted {kind}, conf received: {Talk(conf)}&#34;)
+        except EOFError:
+            print(&#34;EOFerror&#34;, conf)
+        except ConnectionResetError as e:
+            print(f&#34;[!] Connection closed before handshake could finish!&#34;)
+        except Exception as e:
+            print(f&#34;[x] Could not get conf {e}&#34;)
+    
+    def __sendconf(self, kind, client_socket) -&gt; None:
+        &#34;&#34;&#34;Send confirmation.
+
+        Args:
+            kind (Talk IntEnum): type of conf to send
+            client_socket (socket obj): send conf through client connection
+        &#34;&#34;&#34;
+        print(f&#34;[*] Sending conf {kind.name}&#34;)
+        conf = pickle.dumps(kind.value)
+        print(&#34;KIND&#34;,kind.value)
+        print(&#34;Entered sendconf&#34;, time.time())
+        client_socket.sendall(conf)
+
+    def send(self, header) -&gt; int:
+        &#34;&#34;&#34; Send message to the other pi.
+        
+        Check that message is valid, then connect and send message. Then wait
+        for confirmation.
+
+        Args:
+            header (dict): dictionary of header info
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        3 connection was ok, but send failed.
+
+        Example:
+            `from OrderCode import OrderCode`
+            `EtherTalkObject.send(OrderCode.SHUT_DOWN)`
+
+        &#34;&#34;&#34;
+        assert(type(header[&#39;code&#39;]) == type(OrderCode.SHUT_DOWN.value))
+
+        print(f&#34;\n[+] Sending {header[&#39;code&#39;]}&#34;)
+
+        # Keep trying to connect until CONF_TIMEOUT
+        stat = self.__connect()
+        tf = time.time() + CONF_TIMEOUT
+        while stat != 0 and time.time() &lt; tf:
+            stat = self.__connect()
+            print(f&#34;[!] send connect stat {stat}&#34;)
+        # If we&#39;ve connect was not successful upon timeout, return stat
+        if stat &gt; 0:
+            return stat
+
+        try:
+            # Pickle our payload, send it, then confirm
+            self.socket.sendall(pickle.dumps(f&#34;{header}{HEADER}&#34;))
+            self.__getconf(Talk.HEADER)
+            return 0
+        except Exception as e:
+            print(f&#34;[x] Failed to send {e}&#34;)
+            self.socket.close()
+            return 3
+
+    def send_file(self, header, filename) -&gt; int:
+        &#34;&#34;&#34; Send file to connected pi. Attempts to establish connection, then
+        sends file. If no connection (no serverip), then scans once to attempt
+        setting serverip to active host on network.
+
+        Args:
+            header (dict): Generated by MessageMan. We need to add filename
+                and filsize.
+            filename (str): Path to file, relative to sender. This will be
+                stripped away.
+
+        Returns:
+            int
+        0 on successful connection.
+        1 someone was there before, but our connection failed,
+        likely went down.
+        2 nobody at all on our LAN.
+        3 connection was ok, but send failed.
+
+            message =
+                {
+                    &#34;code&#34;       : (OrderCode),
+                    &#34;sent_time&#34;  : (float)),
+                    &#34;start_time&#34; : (start_time),
+                    &#34;message&#34;    : (input_message)
+                }                
+        &#34;&#34;&#34;
+        print(f&#34;\n[!] Sending {filename}&#34;)
+
+        assert(os.path.isfile(filename))
+
+        # Keep trying to connect until CONF_TIMEOUT
+        stat = self.__connect()
+        tf = time.time() + CONF_TIMEOUT
+        while stat != 0 and (tf-time.time()) &gt; 0:
+            stat = self.__connect()
+            print(f&#34;[!] send connect stat {stat}&#34;)
+        # If we&#39;ve connect was not successful upon timeout, return stat
+        if stat &gt; 0:
+            return stat
+        
+        # Put file name and size into header (to let follower know we&#39;re
+        # about to send a file)
+        header[&#39;file&#39;] = filename if filename else &#34;&#34;
+        header[&#39;filesize&#39;] = os.path.getsize(filename) if filename else &#34;&#34;
+
+        filesize = header[&#39;filesize&#39;]
+        try:
+            start = time.time()
+
+            # Send our header declaring a file is to be sent
+            package = pickle.dumps(f&#34;{header}{HEADER}&#34;)
+            self.socket.sendall(package)
+
+            self.__getconf(Talk.HEADER)
+
+            print(&#34;[*] Sending file.&#34;)
+            f = open(filename, &#39;rb&#39;)
+            bytes_sent = self.socket.sendfile(f)
+
+            print(f&#34;[!] Bytes sent {bytes_sent}&#34;)
+            if bytes_sent - filesize != 0:
+                print(&#34;[x] Something went wrong with our sending!&#34;)
+            f.close()
+
+            end = time.time()
+            print(f&#34;[!] Sent in {end-start}s&#34;)
+
+            print(f&#34;[+] {filename} sent&#34;)
+            self.socket.close()
+            return 0
+        except Exception as e:
+            self.eh.log_error(e)
+            print(f&#34;[x] Sending file error: {e}&#34;)
+            print(&#34;[x] Failed to send file.&#34;)
+            return 3
+
+    def listen(self, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Listener that spawns threads for PiMan. When a header is received,
+        spawn a client thread to manage connection.
+
+        Args:
+            path (str): optional path to write received file to.
+
+        Returns:
+            tuple (int, dict): int 0 Success, &gt; 0 failure,
+        &#34;&#34;&#34;
+        print(&#34;\nListen&#34;)
+        # Create TCP server socket, set to reuse address and disable Nagle
+        self.socket = socket.socket()
+        self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+        # Bind socket to our local address and port
+        self.socket.bind((self.server_host, self.port))
+        # Accept 5 connections
+        self.socket.listen(10)
+        print(f&#34;[*] Listening as {self.server_host}:{self.port}&#34;)
+
+        # Accept connection and create new socket representing connection
+        try:
+            client_socket, address = self.socket.accept()
+        except Exception as e:
+            return 2, {&#39;code&#39;: OrderCode.FAILED.value}
+
+        print(f&#34;[+] {address} is connected.&#34;)
+        client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+        status, header = self.__client_thread(client_socket, path)
+
+        client_socket.close()
+        print(&#34;[x] Closed client socket.&#34;)
+        self.socket.close()
+        print(&#34;[x] Closed main socket.&#34;)
+        return (status, header)
+
+    def __client_thread(self, client_socket, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Client thread to handle input. Receive with given client socket.
+
+        Args:
+            client_socket (socket): Client socket
+            path (str): optional path to write to. Default to current working 
+            dir.
+
+        Returns:
+            tuple (int, dict): 0 success, 1 error and dict of header.
+        &#34;&#34;&#34;
+        print(f&#34;[*] Client thread&#34;)
+
+        package = client_socket.recv(BUFFER_SIZE)
+        # NOTE: Sometimes file gets sent with header. Turned off Nagle&#39;s
+        #       algorithm, but for very small files it may send the file
+        #       with the header.
+        header, payload = pickle.loads(package).split(HEADER)
+        header = literal_eval(header)  # Load the header
+        code = header[&#39;code&#39;]  # Evaluate code
+        print(f&#34;[+] Code: {header[&#39;code&#39;]}&#34;)
+        if header[&#39;message&#39;]:
+            print(f&#34;[!] Message: {header[&#39;message&#39;]}&#34;)
+        # Confirm payload secure
+        print(&#34;[*] Sending conf&#34;)
+        self.__sendconf(Talk.HEADER, client_socket)
+        # If we&#39;re getting a file, pass to receive_file()
+        if code == OrderCode.SEND_FILE.value:
+            return self.__receive_file(header, payload, client_socket, path)
+
+        return 0, header
+
+    def __receive_file(self, header, payload, client_socket, path=None) -&gt; (int, dict):
+        &#34;&#34;&#34; Receive file from pi. Listens on all ips. If not successful, 
+        dictionary will be empty.
+
+        Args:
+            header (dict): header information
+            payload (str): files sometimes catted to header
+            client_socket (socket): 
+            path (str): optional. Default to cwd.
+
+        Returns:
+            tuple (int, dict): 0 success, 1 error and header
+        &#34;&#34;&#34;
+        # Receive file info using client socket, not server socket
+        filename = header[&#39;file&#39;]
+        filesize = header[&#39;filesize&#39;]
+        filename = os.path.basename(filename)
+        filename = path + filename
+        filesize = int(filesize)
+
+        print(f&#34;[!] Receiving {filename}, size {filesize}&#34;)
+
+        try:
+            start = time.time()
+
+            f = open(filename, &#39;wb&#39;)
+            while True:
+                bytes_read = client_socket.recv(BUFFER_SIZE)
+                if not bytes_read:
+                    break
+                f.write(bytes_read)
+            f.close()
+
+            end = time.time()
+            print(f&#34;[!] Received in {end-start}s&#34;)
+
+            print(f&#34;[+] Received {filename}&#34;)
+
+            return (0, header)
+        except Exception as e:
+            self.eh.log_error(e)
+            print(&#34;[x] Failed to receive file.&#34;)
+            return (1, {})</code></pre>
+                        </details>
+                        <h3>Methods</h3>
+                        <dl>
+                            <dt id="EtherTalk.EtherTalk.get_status"><code class="name flex">
+<span>def <span class="ident">get_status</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc"></section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_status(self):
+    print(f&#34;[!] self.ip:       {self.ip}&#34;)
+    print(f&#34;[!] self.serverip: {self.serverip}\n&#34;)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="EtherTalk.EtherTalk.listen"><code class="name flex">
+<span>def <span class="ident">listen</span></span>(<span>self, path=None)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Listener that spawns threads for PiMan. When a header is received,
+                                        spawn a client thread to manage connection.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+                                        <dd>optional path to write received file to.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>tuple</code></strong> :&ensp;<code>int</code>,
+                                            <code>dict</code></dt>
+                                        <dd>int 0 Success, &gt; 0 failure,</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def listen(self, path=None) -&gt; (int, dict):
+    &#34;&#34;&#34; Listener that spawns threads for PiMan. When a header is received,
+    spawn a client thread to manage connection.
+
+    Args:
+        path (str): optional path to write received file to.
+
+    Returns:
+        tuple (int, dict): int 0 Success, &gt; 0 failure,
+    &#34;&#34;&#34;
+    print(&#34;\nListen&#34;)
+    # Create TCP server socket, set to reuse address and disable Nagle
+    self.socket = socket.socket()
+    self.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    self.socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+    # Bind socket to our local address and port
+    self.socket.bind((self.server_host, self.port))
+    # Accept 5 connections
+    self.socket.listen(10)
+    print(f&#34;[*] Listening as {self.server_host}:{self.port}&#34;)
+
+    # Accept connection and create new socket representing connection
+    try:
+        client_socket, address = self.socket.accept()
+    except Exception as e:
+        return 2, {&#39;code&#39;: OrderCode.FAILED.value}
+
+    print(f&#34;[+] {address} is connected.&#34;)
+    client_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+
+    status, header = self.__client_thread(client_socket, path)
+
+    client_socket.close()
+    print(&#34;[x] Closed client socket.&#34;)
+    self.socket.close()
+    print(&#34;[x] Closed main socket.&#34;)
+    return (status, header)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="EtherTalk.EtherTalk.ping"><code class="name flex">
+<span>def <span class="ident">ping</span></span>(<span>self, timeout_time=2)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Scan network, if active found we know we are not the first to start.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>int</code></strong></dt>
+                                        <dd>0 on connection, 1 on nothing found</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def ping(self, timeout_time=TIMEOUT_DURATION) -&gt; int:
+    &#34;&#34;&#34; Scan network, if active found we know we are not the first to start.
+
+    Args:
+        None
+
+    Returns:
+        int: 0 on connection, 1 on nothing found
+    &#34;&#34;&#34;
+    loop_end_time = datetime.now() + timedelta(minutes=timeout_time)
+    # Loop for TIMEOUT_DURATION minutes or until we first connection.
+    while datetime.now() &lt; loop_end_time:
+        # Try to set serverip
+        print(&#34;Ping trying to connect&#34;)
+        if self.scan():
+            return 0
+    return 1</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="EtherTalk.EtherTalk.scan"><code class="name flex">
+<span>def <span class="ident">scan</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Scan for active network hosts in constants.KNOWN_IPS.
+                                        If found, set self.serverip to found ip, return True. There is someone
+                                        on LAN, but we don't yet know if it is accepting connections.
+                                        Must be used after instantiating EtherTalk class.</p>
+                                    <p>Args:
+                                        None</p>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>bool</code></strong></dt>
+                                        <dd>True indicates success, False indicates nobody there.</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def scan(self) -&gt; bool:
+    &#34;&#34;&#34; Scan for active network hosts in constants.KNOWN_IPS.
+    If found, set self.serverip to found ip, return True. There is someone
+    on LAN, but we don&#39;t yet know if it is accepting connections.
+    Must be used after instantiating EtherTalk class.
+
+    Args: 
+        None
+
+    Returns:
+        bool: True indicates success, False indicates nobody there.
+    &#34;&#34;&#34;
+    if self.test == True:
+        # Loopback device for local
+        interface = ni.ifaddresses(&#39;lo&#39;)[ni.AF_INET][0]
+        self.ip = interface[&#39;addr&#39;]
+        self.serverip = &#34;localhost&#34;
+        return True
+    else:
+        # Rpi specific ethernet interface &#39;eth0&#39;.
+        # This fails and ret 0 if there is no ethernet conn.
+        try:
+            interface = ni.ifaddresses(&#39;eth0&#39;)[ni.AF_INET][0]
+            self.ip = interface[&#39;addr&#39;]
+        except:
+            self.ip = None
+            self.serverip = None
+            return False
+    print(&#34;[*] Scanning for ips on lan&#34;)
+    print(&#34;[*] My ip:&#34;, self.ip)
+    for ip in KNOWN_IPS:
+        print(&#34;[*] Pinging&#34;, ip)
+        if self.ip == ip:
+            print(&#34;[!] SAME!&#34;)
+            continue
+        if self.__isup(ip):
+            print(f&#34;[+] Active host found at {ip}.\n&#34;)
+            self.serverip = ip
+            return True
+    print()
+    return False</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="EtherTalk.EtherTalk.send"><code class="name flex">
+<span>def <span class="ident">send</span></span>(<span>self, header)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Send message to the other pi.</p>
+                                    <p>Check that message is valid, then connect and send message. Then wait
+                                        for confirmation.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>header</code></strong> :&ensp;<code>dict</code></dt>
+                                        <dd>dictionary of header info</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>int</code></dt>
+                                        <dd>&nbsp;</dd>
+                                        <dt>0 on successful connection.</dt>
+                                        <dt><code>1</code> <code>someone</code> <code>was</code> <code>there</code>
+                                            <code>before</code>, <code>but</code> <code>our</code>
+                                            <code>connection</code> <code>failed</code>,</dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <p>likely went down.
+                                        2 nobody at all on our LAN.
+                                        3 connection was ok, but send failed.</p>
+                                    <h2 id="example">Example</h2>
+                                    <p><code>from OrderCode import OrderCode</code>
+                                        <code>EtherTalkObject.send(OrderCode.SHUT_DOWN)</code></p>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def send(self, header) -&gt; int:
+    &#34;&#34;&#34; Send message to the other pi.
+    
+    Check that message is valid, then connect and send message. Then wait
+    for confirmation.
+
+    Args:
+        header (dict): dictionary of header info
+
+    Returns:
+        int
+    0 on successful connection.
+    1 someone was there before, but our connection failed,
+    likely went down.
+    2 nobody at all on our LAN.
+    3 connection was ok, but send failed.
+
+    Example:
+        `from OrderCode import OrderCode`
+        `EtherTalkObject.send(OrderCode.SHUT_DOWN)`
+
+    &#34;&#34;&#34;
+    assert(type(header[&#39;code&#39;]) == type(OrderCode.SHUT_DOWN.value))
+
+    print(f&#34;\n[+] Sending {header[&#39;code&#39;]}&#34;)
+
+    # Keep trying to connect until CONF_TIMEOUT
+    stat = self.__connect()
+    tf = time.time() + CONF_TIMEOUT
+    while stat != 0 and time.time() &lt; tf:
+        stat = self.__connect()
+        print(f&#34;[!] send connect stat {stat}&#34;)
+    # If we&#39;ve connect was not successful upon timeout, return stat
+    if stat &gt; 0:
+        return stat
+
+    try:
+        # Pickle our payload, send it, then confirm
+        self.socket.sendall(pickle.dumps(f&#34;{header}{HEADER}&#34;))
+        self.__getconf(Talk.HEADER)
+        return 0
+    except Exception as e:
+        print(f&#34;[x] Failed to send {e}&#34;)
+        self.socket.close()
+        return 3</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="EtherTalk.EtherTalk.send_file"><code class="name flex">
+<span>def <span class="ident">send_file</span></span>(<span>self, header, filename)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Send file to connected pi. Attempts to establish connection, then
+                                        sends file. If no connection (no serverip), then scans once to attempt
+                                        setting serverip to active host on network.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>header</code></strong> :&ensp;<code>dict</code></dt>
+                                        <dd>Generated by MessageMan. We need to add filename
+                                            and filsize.</dd>
+                                        <dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+                                        <dd>Path to file, relative to sender. This will be
+                                            stripped away.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>int</code></dt>
+                                        <dd>&nbsp;</dd>
+                                        <dt>0 on successful connection.</dt>
+                                        <dt><code>1</code> <code>someone</code> <code>was</code> <code>there</code>
+                                            <code>before</code>, <code>but</code> <code>our</code>
+                                            <code>connection</code> <code>failed</code>,</dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <p>likely went down.
+                                        2 nobody at all on our LAN.
+                                        3 connection was ok, but send failed.</p>
+                                    <pre><code>message =
+    {
+        "code"       : (OrderCode),
+        "sent_time"  : (float)),
+        "start_time" : (start_time),
+        "message"    : (input_message)
+    }
+</code></pre>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def send_file(self, header, filename) -&gt; int:
+    &#34;&#34;&#34; Send file to connected pi. Attempts to establish connection, then
+    sends file. If no connection (no serverip), then scans once to attempt
+    setting serverip to active host on network.
+
+    Args:
+        header (dict): Generated by MessageMan. We need to add filename
+            and filsize.
+        filename (str): Path to file, relative to sender. This will be
+            stripped away.
+
+    Returns:
+        int
+    0 on successful connection.
+    1 someone was there before, but our connection failed,
+    likely went down.
+    2 nobody at all on our LAN.
+    3 connection was ok, but send failed.
+
+        message =
+            {
+                &#34;code&#34;       : (OrderCode),
+                &#34;sent_time&#34;  : (float)),
+                &#34;start_time&#34; : (start_time),
+                &#34;message&#34;    : (input_message)
+            }                
+    &#34;&#34;&#34;
+    print(f&#34;\n[!] Sending {filename}&#34;)
+
+    assert(os.path.isfile(filename))
+
+    # Keep trying to connect until CONF_TIMEOUT
+    stat = self.__connect()
+    tf = time.time() + CONF_TIMEOUT
+    while stat != 0 and (tf-time.time()) &gt; 0:
+        stat = self.__connect()
+        print(f&#34;[!] send connect stat {stat}&#34;)
+    # If we&#39;ve connect was not successful upon timeout, return stat
+    if stat &gt; 0:
+        return stat
+    
+    # Put file name and size into header (to let follower know we&#39;re
+    # about to send a file)
+    header[&#39;file&#39;] = filename if filename else &#34;&#34;
+    header[&#39;filesize&#39;] = os.path.getsize(filename) if filename else &#34;&#34;
+
+    filesize = header[&#39;filesize&#39;]
+    try:
+        start = time.time()
+
+        # Send our header declaring a file is to be sent
+        package = pickle.dumps(f&#34;{header}{HEADER}&#34;)
+        self.socket.sendall(package)
+
+        self.__getconf(Talk.HEADER)
+
+        print(&#34;[*] Sending file.&#34;)
+        f = open(filename, &#39;rb&#39;)
+        bytes_sent = self.socket.sendfile(f)
+
+        print(f&#34;[!] Bytes sent {bytes_sent}&#34;)
+        if bytes_sent - filesize != 0:
+            print(&#34;[x] Something went wrong with our sending!&#34;)
+        f.close()
+
+        end = time.time()
+        print(f&#34;[!] Sent in {end-start}s&#34;)
+
+        print(f&#34;[+] {filename} sent&#34;)
+        self.socket.close()
+        return 0
+    except Exception as e:
+        self.eh.log_error(e)
+        print(f&#34;[x] Sending file error: {e}&#34;)
+        print(&#34;[x] Failed to send file.&#34;)
+        return 3</code></pre>
+                                </details>
+                            </dd>
+                        </dl>
+                    </dd>
+                    <dt id="EtherTalk.Talk"><code class="flex name class">
+<span>class <span class="ident">Talk</span></span>
+<span>(</span><span>value, names=None, *, module=None, qualname=None, type=None, start=1)</span>
+</code></dt>
+                    <dd>
+                        <section class="desc">
+                            <p>An enumeration.</p>
+                        </section>
+                        <h3>Ancestors</h3>
+                        <ul class="hlist">
+                            <li>enum.IntEnum</li>
+                            <li>builtins.int</li>
+                            <li>enum.Enum</li>
+                        </ul>
+                        <h3>Class variables</h3>
+                        <dl>
+                            <dt id="EtherTalk.Talk.HEADER"><code
+                                    class="name">var <span class="ident">HEADER</span></code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>An enumeration.</p>
+                                </section>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </section>
+        </article>
+        <nav id="sidebar">
+            <h1><a title="DocIndex" href="DocIndex.html">&#8592;Back</a></h1>
+            <h1>Index</h1>
+            <div class="toc">
+                <ul></ul>
+            </div>
+            <ul id="index">
+                <li>
+                    <h3><a href="#header-classes">Classes</a></h3>
+                    <ul>
+                        <li>
+                            <h4><code><a title="EtherTalk.EtherTalk" href="#EtherTalk.EtherTalk">EtherTalk</a></code>
+                            </h4>
+                            <ul class="two-column">
+                                <li><code><a title="EtherTalk.EtherTalk.get_status" href="#EtherTalk.EtherTalk.get_status">get_status</a></code>
+                                </li>
+                                <li><code><a title="EtherTalk.EtherTalk.listen" href="#EtherTalk.EtherTalk.listen">listen</a></code>
+                                </li>
+                                <li><code><a title="EtherTalk.EtherTalk.ping" href="#EtherTalk.EtherTalk.ping">ping</a></code>
+                                </li>
+                                <li><code><a title="EtherTalk.EtherTalk.scan" href="#EtherTalk.EtherTalk.scan">scan</a></code>
+                                </li>
+                                <li><code><a title="EtherTalk.EtherTalk.send" href="#EtherTalk.EtherTalk.send">send</a></code>
+                                </li>
+                                <li><code><a title="EtherTalk.EtherTalk.send_file" href="#EtherTalk.EtherTalk.send_file">send_file</a></code>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h4><code><a title="EtherTalk.Talk" href="#EtherTalk.Talk">Talk</a></code></h4>
+                            <ul class="">
+                                <li><code><a title="EtherTalk.Talk.HEADER" href="#EtherTalk.Talk.HEADER">HEADER</a></code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer id="footer">
+        <p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.4</a>.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+</body>
+
+</html>

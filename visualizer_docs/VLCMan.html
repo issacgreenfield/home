@@ -1,0 +1,1984 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <meta name="generator" content="pdoc 0.7.4" />
+    <title>VLCMan API documentation</title>
+    <meta name="description" content="" />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    <style>
+        .flex {
+            display: flex !important
+        }
+
+        body {
+            line-height: 1.5em
+        }
+
+        #content {
+            padding: 20px
+        }
+
+        #sidebar {
+            padding: 30px;
+            overflow: hidden
+        }
+
+        .http-server-breadcrumbs {
+            font-size: 130%;
+            margin: 0 0 15px 0
+        }
+
+        #footer {
+            font-size: .75em;
+            padding: 5px 30px;
+            border-top: 1px solid #ddd;
+            text-align: right
+        }
+
+        #footer p {
+            margin: 0 0 0 1em;
+            display: inline-block
+        }
+
+        #footer p:last-child {
+            margin-right: 30px
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 300
+        }
+
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.1em
+        }
+
+        h2 {
+            font-size: 1.75em;
+            margin: 1em 0 .50em 0
+        }
+
+        h3 {
+            font-size: 1.4em;
+            margin: 25px 0 10px 0
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 105%
+        }
+
+        a {
+            color: #058;
+            text-decoration: none;
+            transition: color .3s ease-in-out
+        }
+
+        a:hover {
+            color: #e82
+        }
+
+        .title code {
+            font-weight: bold
+        }
+
+        h2[id^="header-"] {
+            margin-top: 2em
+        }
+
+        .ident {
+            color: #900
+        }
+
+        pre code {
+            background: #f8f8f8;
+            font-size: .8em;
+            line-height: 1.4em
+        }
+
+        code {
+            background: #f2f2f1;
+            padding: 1px 4px;
+            overflow-wrap: break-word
+        }
+
+        h1 code {
+            background: transparent
+        }
+
+        pre {
+            background: #f8f8f8;
+            border: 0;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin: 1em 0;
+            padding: 1ex
+        }
+
+        #http-server-module-list {
+            display: flex;
+            flex-flow: column
+        }
+
+        #http-server-module-list div {
+            display: flex
+        }
+
+        #http-server-module-list dt {
+            min-width: 10%
+        }
+
+        #http-server-module-list p {
+            margin-top: 0
+        }
+
+        .toc ul,
+        #index {
+            list-style-type: none;
+            margin: 0;
+            padding: 0
+        }
+
+        #index code {
+            background: transparent
+        }
+
+        #index h3 {
+            border-bottom: 1px solid #ddd
+        }
+
+        #index ul {
+            padding: 0
+        }
+
+        #index h4 {
+            font-weight: bold
+        }
+
+        #index h4+ul {
+            margin-bottom: .6em
+        }
+
+        @media (min-width:200ex) {
+            #index .two-column {
+                column-count: 2
+            }
+        }
+
+        @media (min-width:300ex) {
+            #index .two-column {
+                column-count: 3
+            }
+        }
+
+        dl {
+            margin-bottom: 2em
+        }
+
+        dl dl:last-child {
+            margin-bottom: 4em
+        }
+
+        dd {
+            margin: 0 0 1em 3em
+        }
+
+        #header-classes+dl>dd {
+            margin-bottom: 3em
+        }
+
+        dd dd {
+            margin-left: 2em
+        }
+
+        dd p {
+            margin: 10px 0
+        }
+
+        .name {
+            background: #eee;
+            font-weight: bold;
+            font-size: .85em;
+            padding: 5px 10px;
+            display: inline-block;
+            min-width: 40%
+        }
+
+        .name:hover {
+            background: #e0e0e0
+        }
+
+        .name>span:first-child {
+            white-space: nowrap
+        }
+
+        .name.class>span:nth-child(2) {
+            margin-left: .4em
+        }
+
+        .inherited {
+            color: #999;
+            border-left: 5px solid #eee;
+            padding-left: 1em
+        }
+
+        .inheritance em {
+            font-style: normal;
+            font-weight: bold
+        }
+
+        .desc h2 {
+            font-weight: 400;
+            font-size: 1.25em
+        }
+
+        .desc h3 {
+            font-size: 1em
+        }
+
+        .desc dt code {
+            background: inherit
+        }
+
+        .source summary,
+        .git-link-div {
+            color: #666;
+            text-align: right;
+            font-weight: 400;
+            font-size: .8em;
+            text-transform: uppercase
+        }
+
+        .source summary>* {
+            white-space: nowrap;
+            cursor: pointer
+        }
+
+        .git-link {
+            color: inherit;
+            margin-left: 1em
+        }
+
+        .source pre {
+            max-height: 500px;
+            overflow: auto;
+            margin: 0
+        }
+
+        .source pre code {
+            font-size: 12px;
+            overflow: visible
+        }
+
+        .hlist {
+            list-style: none
+        }
+
+        .hlist li {
+            display: inline
+        }
+
+        .hlist li:after {
+            content: ',\2002'
+        }
+
+        .hlist li:last-child:after {
+            content: none
+        }
+
+        .hlist .hlist {
+            display: inline;
+            padding-left: 1em
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .admonition {
+            padding: .1em .5em;
+            margin-bottom: 1em
+        }
+
+        .admonition-title {
+            font-weight: bold
+        }
+
+        .admonition.note,
+        .admonition.info,
+        .admonition.important {
+            background: #aef
+        }
+
+        .admonition.todo,
+        .admonition.versionadded,
+        .admonition.tip,
+        .admonition.hint {
+            background: #dfd
+        }
+
+        .admonition.warning,
+        .admonition.versionchanged,
+        .admonition.deprecated {
+            background: #fd4
+        }
+
+        .admonition.error,
+        .admonition.danger,
+        .admonition.caution {
+            background: lightpink
+        }
+    </style>
+    <style media="screen and (min-width: 700px)">
+        @media screen and (min-width:700px) {
+            #sidebar {
+                width: 30%
+            }
+
+            #content {
+                width: 70%;
+                max-width: 100ch;
+                padding: 3em 4em;
+                border-left: 1px solid #ddd
+            }
+
+            pre code {
+                font-size: 1em
+            }
+
+            .item .name {
+                font-size: 1em
+            }
+
+            main {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end
+            }
+
+            .toc ul ul,
+            #index ul {
+                padding-left: 1.5em
+            }
+
+            .toc>ul>li {
+                margin-top: .5em
+            }
+        }
+    </style>
+    <style media="print">
+        @media print {
+            #sidebar h1 {
+                page-break-before: always
+            }
+
+            .source {
+                display: none
+            }
+        }
+
+        @media print {
+            * {
+                background: transparent !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                text-shadow: none !important
+            }
+
+            a[href]:after {
+                content: " ("attr(href) ")";
+                font-size: 90%
+            }
+
+            a[href][title]:after {
+                content: none
+            }
+
+            abbr[title]:after {
+                content: " ("attr(title) ")"
+            }
+
+            .ir a:after,
+            a[href^="javascript:"]:after,
+            a[href^="#"]:after {
+                content: ""
+            }
+
+            pre,
+            blockquote {
+                border: 1px solid #999;
+                page-break-inside: avoid
+            }
+
+            thead {
+                display: table-header-group
+            }
+
+            tr,
+            img {
+                page-break-inside: avoid
+            }
+
+            img {
+                max-width: 100% !important
+            }
+
+            @page {
+                margin: 0.5cm
+            }
+
+            p,
+            h2,
+            h3 {
+                orphans: 3;
+                widows: 3
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                page-break-after: avoid
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <article id="content">
+            <header>
+                <h1 class="title">Module <code>VLCMan</code></h1>
+            </header>
+            <section id="section-intro">
+                <details class="source">
+                    <summary>
+                        <span>Expand source code</span>
+                    </summary>
+                    <pre><code class="python"># ****************************************************
+# Copyright: 2020 Team Visualizer (Carlos Miguel Sayao, Connor Bettermann, Issac Greenfield, Madeleine Elyea, Tanner Sundwall, Ted Moore, Prerna Agarwal)
+# License: MIT
+# ****************************************************
+# Purpose:  Manages the VLC program.
+#           Handles switching between ProjectM visualizations and video playback.
+#           Handles disabling of all captions, text, and other VLC GUI elements which get in the way.
+# Sources:  VLC command-line help, https://wiki.videolan.org/VLC_command-line_help
+#
+# ****************************************************
+
+from subprocess import Popen, check_output, PIPE
+import os
+import random
+from ErrorHandler import ErrorHandler
+from constants import *
+
+
+class VLCMan:
+    def __init__(self, folder_path, playlist, entries, error_handler=None, 
+                 max_duration=1800, trim_amount=&#34;600&#34;):
+        self.folder_path = folder_path  # path to folder containing videos
+        self.playlist = playlist  # name of .m3u file containing playlist
+        self.entries = entries  # list of video file names
+        self.max_duration = max_duration  # Max duration of any given video
+        self.trim_amount = trim_amount
+        self.loop_status = &#34;Playlist&#34;
+        self.eh = error_handler
+
+    def start_vlc(self) -&gt; bool:
+        &#34;&#34;&#34; Boots up VLC from shell with various arguments.
+        The various arguments are manipulated within the function itself.
+
+        Args:
+            None
+
+        Returns:
+            bool: True for success, False otherwise.
+        &#34;&#34;&#34;
+        vlc = &#34;vlc&#34;
+        dummy_vlc = &#34;cvlc&#34;
+        fullscreen = &#34;--fullscreen&#34;
+        mute = &#34;--no-audio&#34;
+        no_title = &#34;--no-video-title-show&#34;
+        anaglyph = &#34;--video-filter=Anaglyph&#34;
+        disable_scroll = &#34;--hotkeys-y-wheel-mode=-1&#34;
+        disable_mouse = &#34;--no-mouse-events&#34;
+        cursor_timeout = &#34;--mouse-hide-timeout=0&#34;
+        disable_network = &#34;--no-qt-privacy-ask&#34;
+        single_instance = &#34;--one-instance&#34;
+        loop = &#34;--loop&#34;
+        
+        if os.path.exists(self.playlist):
+            try:
+                # Start VLC process with specified arguments.
+                # Args can be in whatever order. Only rule is that &#34;vlc&#34; must be at start, and &#34;self.playlist&#34; must be at end.
+                #    Popen([dummy_vlc, anaglyph, fullscreen, mute, no_title, disable_scroll,
+                #           disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+                # For Testing, disable analglyph to check video playback
+                Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                       disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+                return True
+            except:
+                self.eh.log_critical(&#34;VLC could not properly start. Major startup error.&#34;)
+                raise
+        else:
+            Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                       disable_mouse, disable_network, cursor_timeout, single_instance])
+            return True
+
+    def get_length(self, filename) -&gt; float:
+        &#34;&#34;&#34; Retrieve the length of a video (in seconds).
+
+        Args:
+            filename (str): Filename of video.
+
+        Returns:
+            float: Video length (in seconds).
+        &#34;&#34;&#34;
+        if filename == &#34;&#34;:
+            return 0.0
+        else:
+            return float(check_output([&#34;ffprobe -v error -show_entries \
+                                                format=duration -of \
+                                                default=noprint_wrappers=1:nokey=1 &#34; + filename.replace(&#34; &#34;, &#34;\ &#34;)], shell=True))
+
+    def get_length_of_current(self) -&gt; float:
+        &#34;&#34;&#34; Retrieves the length of the video currently being played (in seconds).
+
+        Args:
+            None
+
+        Returns:
+            float: Video length (in seconds).
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Metadata|egrep -A 1 \&#34;vlc:length\&#34;|cut -b 42-|egrep -v ^$&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return float(out) / 1000
+
+    def get_position(self) -&gt; float:
+        &#34;&#34;&#34; Retrieves the current position in the video being played (in seconds).
+
+        Args:
+            None
+
+        Returns:
+            float: Video position (in seconds).
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Position|egrep -A 1 &#39;variant&#39;|cut -b 24-&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return float(out) / 1000000
+
+    def set_position(self, track_id, position) -&gt; bool:
+        &#34;&#34;&#34; Sets the position of the current video.
+        The track_id must be the the id of the track currently being played.
+
+        Args:
+            trackid (str): id of track to be played, gathered from get_id()
+            position (float): position of video to start playing in microseconds.
+
+        Returns:
+            bool: True for success, False for failure
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.SetPosition objpath:&#34; + track_id + &#34; int64:&#34; + str(position)], shell=True)
+        return True
+
+    def get_rate(self) -&gt; float:
+        &#34;&#34;&#34; Retrieve the rate the current video is being played at.
+
+        Args:
+            None
+
+        Returns:
+            float: Video rate.
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Rate|egrep -A 1 &#39;variant&#39;|cut -b 25-&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+        out, err = proc.communicate()
+
+        return float(out)
+
+    def get_id(self) -&gt; str:
+        &#34;&#34;&#34; Retrieve the id of the video currently being played.
+        A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+        Args:
+            None
+
+        Returns:
+            str: Video id.
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Metadata|egrep -A 1 &#39;mpris:trackid&#39;|cut -b 49-|rev|cut -b 2-|rev|egrep -v ^$&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return out.decode(&#39;ascii&#39;).strip()
+
+    def change_video(self, video_id):
+        &#34;&#34;&#34; Changes the currently playing video to another video in the playlist if it exists.
+        You&#39;ll need to retrieve the argument passed into this using VLCMan.get_id().
+        A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+        Args:
+            str: Video id.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        print(video_id)
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.TrackList.GoTo \
+                        objpath:&#34; + video_id], shell=True)
+
+    def randomize_videos(self) -&gt; bool:
+        &#34;&#34;&#34; Randomize the order the videos populate the playlist in.
+        Requires: &#34;import random&#34;, Requires: &#34;import os&#34;
+
+        Args:
+            None
+
+        Returns:
+            bool: The return value. True for success, False otherwise.
+        &#34;&#34;&#34;
+        # retrieve video file names and store them in a list
+        self.entries = os.listdir(self.folder_path)
+
+        # Randomize the list of video files
+        random.shuffle(self.entries)
+        for entry in self.entries:
+            print(entry)
+
+        return True
+
+    def play_pause_video(self):
+        &#34;&#34;&#34; Utilize qdbus to play/pause video.
+        If the video is being played, this will pause it. If the video is 
+        paused, this will play it.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause&#34;], shell=True)
+
+    def toggle_loop_video(self):
+        &#34;&#34;&#34; Toggles between looping the playlist and looping the video 
+        currently being played. This loop only occurs if the video hits its end 
+        time. It will not occur if we manually skip to the next video.
+
+        This option also persists until it&#39;s manually changed unlike the 
+        video rate option.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Playlist&#34;:
+            self.loop_status = &#34;Track&#34;
+        else:
+            self.loop_status = &#34;Playlist&#34;
+
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def set_loop_video(self):
+        &#34;&#34;&#34; Set VLC to loop the current video if it&#39;s currently set to loop the playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Playlist&#34;:
+            self.loop_status = &#34;Track&#34;
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def set_loop_playlist(self):
+        &#34;&#34;&#34; Set VLC to loop the current playlist if it&#39;s currently set to loop the track.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Track&#34;:
+            self.loop_status = &#34;Playlist&#34;
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def prev_video(self):
+        &#34;&#34;&#34; Goes back to previous video in playlist.
+        Also sets the current loop status to playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous&#34;], shell=True)
+
+    def next_video(self):
+        &#34;&#34;&#34; Skips to next video in playlist.
+        Also sets the current loop status to playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next&#34;], shell=True)
+
+    def set_rate(self, rate):
+        &#34;&#34;&#34; Modifies the playback rate of the video currently being played.
+        This means that as soon as the video ends, the playback rate of 
+        VLC will be set back to its default.
+
+        Args:
+            rate (double): playback rate.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        new_rate = self.get_rate() + rate
+        if (new_rate &gt;= RATE_MIN) and (new_rate &lt;= RATE_MAX):
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                        string:org.mpris.MediaPlayer2.Player string:Rate variant:double:&#34; + str(new_rate)], shell=True)
+
+    def reset_rate(self):
+        &#34;&#34;&#34; Reverts the rate the current video is being played at back to the default speed of 1.0.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:Rate variant:double:1.0&#34;], shell=True)
+
+    def create_playlist(self) -&gt; bool:
+        &#34;&#34;&#34; Writes out to .m3u file to create playlist.
+
+            Args: 
+                None
+
+            Returns:
+                bool: Returns True if creation was a success or False if failure
+        &#34;&#34;&#34;
+        # open the playlist file and write to it
+        f = open(self.playlist, &#34;w&#34;)
+
+        f.write(&#34;#EXTM3U&#34;)
+        for entry in self.entries:
+            f.write(&#34;\n#EXTINF:0,&#34; + entry)
+            # if the duration is too long, trim the beginning and end
+            if self.get_length(self.folder_path + entry) &gt; self.max_duration:
+                f.write(&#34;\n#EXTVLCOPT:start-time=&#34; +
+                        self.trim_amount + &#34;\n#EXTVLCOPT:stop-time=600&#34;)
+            f.write(&#34;\n&#34; + self.folder_path + &#34;/&#34; + entry)
+        f.close()
+        return True</code></pre>
+                </details>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+            </section>
+            <section>
+                <h2 class="section-title" id="header-classes">Classes</h2>
+                <dl>
+                    <dt id="VLCMan.VLCMan"><code class="flex name class">
+<span>class <span class="ident">VLCMan</span></span>
+<span>(</span><span>folder_path, playlist, entries, error_handler=None, max_duration=1800, trim_amount='600')</span>
+</code></dt>
+                    <dd>
+                        <section class="desc"></section>
+                        <details class="source">
+                            <summary>
+                                <span>Expand source code</span>
+                            </summary>
+                            <pre><code class="python">class VLCMan:
+    def __init__(self, folder_path, playlist, entries, error_handler=None, 
+                 max_duration=1800, trim_amount=&#34;600&#34;):
+        self.folder_path = folder_path  # path to folder containing videos
+        self.playlist = playlist  # name of .m3u file containing playlist
+        self.entries = entries  # list of video file names
+        self.max_duration = max_duration  # Max duration of any given video
+        self.trim_amount = trim_amount
+        self.loop_status = &#34;Playlist&#34;
+        self.eh = error_handler
+
+    def start_vlc(self) -&gt; bool:
+        &#34;&#34;&#34; Boots up VLC from shell with various arguments.
+        The various arguments are manipulated within the function itself.
+
+        Args:
+            None
+
+        Returns:
+            bool: True for success, False otherwise.
+        &#34;&#34;&#34;
+        vlc = &#34;vlc&#34;
+        dummy_vlc = &#34;cvlc&#34;
+        fullscreen = &#34;--fullscreen&#34;
+        mute = &#34;--no-audio&#34;
+        no_title = &#34;--no-video-title-show&#34;
+        anaglyph = &#34;--video-filter=Anaglyph&#34;
+        disable_scroll = &#34;--hotkeys-y-wheel-mode=-1&#34;
+        disable_mouse = &#34;--no-mouse-events&#34;
+        cursor_timeout = &#34;--mouse-hide-timeout=0&#34;
+        disable_network = &#34;--no-qt-privacy-ask&#34;
+        single_instance = &#34;--one-instance&#34;
+        loop = &#34;--loop&#34;
+        
+        if os.path.exists(self.playlist):
+            try:
+                # Start VLC process with specified arguments.
+                # Args can be in whatever order. Only rule is that &#34;vlc&#34; must be at start, and &#34;self.playlist&#34; must be at end.
+                #    Popen([dummy_vlc, anaglyph, fullscreen, mute, no_title, disable_scroll,
+                #           disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+                # For Testing, disable analglyph to check video playback
+                Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                       disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+                return True
+            except:
+                self.eh.log_critical(&#34;VLC could not properly start. Major startup error.&#34;)
+                raise
+        else:
+            Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                       disable_mouse, disable_network, cursor_timeout, single_instance])
+            return True
+
+    def get_length(self, filename) -&gt; float:
+        &#34;&#34;&#34; Retrieve the length of a video (in seconds).
+
+        Args:
+            filename (str): Filename of video.
+
+        Returns:
+            float: Video length (in seconds).
+        &#34;&#34;&#34;
+        if filename == &#34;&#34;:
+            return 0.0
+        else:
+            return float(check_output([&#34;ffprobe -v error -show_entries \
+                                                format=duration -of \
+                                                default=noprint_wrappers=1:nokey=1 &#34; + filename.replace(&#34; &#34;, &#34;\ &#34;)], shell=True))
+
+    def get_length_of_current(self) -&gt; float:
+        &#34;&#34;&#34; Retrieves the length of the video currently being played (in seconds).
+
+        Args:
+            None
+
+        Returns:
+            float: Video length (in seconds).
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Metadata|egrep -A 1 \&#34;vlc:length\&#34;|cut -b 42-|egrep -v ^$&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return float(out) / 1000
+
+    def get_position(self) -&gt; float:
+        &#34;&#34;&#34; Retrieves the current position in the video being played (in seconds).
+
+        Args:
+            None
+
+        Returns:
+            float: Video position (in seconds).
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Position|egrep -A 1 &#39;variant&#39;|cut -b 24-&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return float(out) / 1000000
+
+    def set_position(self, track_id, position) -&gt; bool:
+        &#34;&#34;&#34; Sets the position of the current video.
+        The track_id must be the the id of the track currently being played.
+
+        Args:
+            trackid (str): id of track to be played, gathered from get_id()
+            position (float): position of video to start playing in microseconds.
+
+        Returns:
+            bool: True for success, False for failure
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.SetPosition objpath:&#34; + track_id + &#34; int64:&#34; + str(position)], shell=True)
+        return True
+
+    def get_rate(self) -&gt; float:
+        &#34;&#34;&#34; Retrieve the rate the current video is being played at.
+
+        Args:
+            None
+
+        Returns:
+            float: Video rate.
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Rate|egrep -A 1 &#39;variant&#39;|cut -b 25-&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+        out, err = proc.communicate()
+
+        return float(out)
+
+    def get_id(self) -&gt; str:
+        &#34;&#34;&#34; Retrieve the id of the video currently being played.
+        A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+        Args:
+            None
+
+        Returns:
+            str: Video id.
+        &#34;&#34;&#34;
+        proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                                string:org.mpris.MediaPlayer2.Player \
+                                string:Metadata|egrep -A 1 &#39;mpris:trackid&#39;|cut -b 49-|rev|cut -b 2-|rev|egrep -v ^$&#34;],
+                     shell=True, stdout=PIPE, stderr=PIPE)
+        out, err = proc.communicate()
+        return out.decode(&#39;ascii&#39;).strip()
+
+    def change_video(self, video_id):
+        &#34;&#34;&#34; Changes the currently playing video to another video in the playlist if it exists.
+        You&#39;ll need to retrieve the argument passed into this using VLCMan.get_id().
+        A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+        Args:
+            str: Video id.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        print(video_id)
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.TrackList.GoTo \
+                        objpath:&#34; + video_id], shell=True)
+
+    def randomize_videos(self) -&gt; bool:
+        &#34;&#34;&#34; Randomize the order the videos populate the playlist in.
+        Requires: &#34;import random&#34;, Requires: &#34;import os&#34;
+
+        Args:
+            None
+
+        Returns:
+            bool: The return value. True for success, False otherwise.
+        &#34;&#34;&#34;
+        # retrieve video file names and store them in a list
+        self.entries = os.listdir(self.folder_path)
+
+        # Randomize the list of video files
+        random.shuffle(self.entries)
+        for entry in self.entries:
+            print(entry)
+
+        return True
+
+    def play_pause_video(self):
+        &#34;&#34;&#34; Utilize qdbus to play/pause video.
+        If the video is being played, this will pause it. If the video is 
+        paused, this will play it.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause&#34;], shell=True)
+
+    def toggle_loop_video(self):
+        &#34;&#34;&#34; Toggles between looping the playlist and looping the video 
+        currently being played. This loop only occurs if the video hits its end 
+        time. It will not occur if we manually skip to the next video.
+
+        This option also persists until it&#39;s manually changed unlike the 
+        video rate option.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Playlist&#34;:
+            self.loop_status = &#34;Track&#34;
+        else:
+            self.loop_status = &#34;Playlist&#34;
+
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def set_loop_video(self):
+        &#34;&#34;&#34; Set VLC to loop the current video if it&#39;s currently set to loop the playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Playlist&#34;:
+            self.loop_status = &#34;Track&#34;
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def set_loop_playlist(self):
+        &#34;&#34;&#34; Set VLC to loop the current playlist if it&#39;s currently set to loop the track.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        if self.loop_status == &#34;Track&#34;:
+            self.loop_status = &#34;Playlist&#34;
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)
+
+    def prev_video(self):
+        &#34;&#34;&#34; Goes back to previous video in playlist.
+        Also sets the current loop status to playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous&#34;], shell=True)
+
+    def next_video(self):
+        &#34;&#34;&#34; Skips to next video in playlist.
+        Also sets the current loop status to playlist.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next&#34;], shell=True)
+
+    def set_rate(self, rate):
+        &#34;&#34;&#34; Modifies the playback rate of the video currently being played.
+        This means that as soon as the video ends, the playback rate of 
+        VLC will be set back to its default.
+
+        Args:
+            rate (double): playback rate.
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        new_rate = self.get_rate() + rate
+        if (new_rate &gt;= RATE_MIN) and (new_rate &lt;= RATE_MAX):
+            Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                        /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                        string:org.mpris.MediaPlayer2.Player string:Rate variant:double:&#34; + str(new_rate)], shell=True)
+
+    def reset_rate(self):
+        &#34;&#34;&#34; Reverts the rate the current video is being played at back to the default speed of 1.0.
+
+        Args:
+            None
+
+        Returns:
+            None
+        &#34;&#34;&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:Rate variant:double:1.0&#34;], shell=True)
+
+    def create_playlist(self) -&gt; bool:
+        &#34;&#34;&#34; Writes out to .m3u file to create playlist.
+
+            Args: 
+                None
+
+            Returns:
+                bool: Returns True if creation was a success or False if failure
+        &#34;&#34;&#34;
+        # open the playlist file and write to it
+        f = open(self.playlist, &#34;w&#34;)
+
+        f.write(&#34;#EXTM3U&#34;)
+        for entry in self.entries:
+            f.write(&#34;\n#EXTINF:0,&#34; + entry)
+            # if the duration is too long, trim the beginning and end
+            if self.get_length(self.folder_path + entry) &gt; self.max_duration:
+                f.write(&#34;\n#EXTVLCOPT:start-time=&#34; +
+                        self.trim_amount + &#34;\n#EXTVLCOPT:stop-time=600&#34;)
+            f.write(&#34;\n&#34; + self.folder_path + &#34;/&#34; + entry)
+        f.close()
+        return True</code></pre>
+                        </details>
+                        <h3>Methods</h3>
+                        <dl>
+                            <dt id="VLCMan.VLCMan.change_video"><code class="name flex">
+<span>def <span class="ident">change_video</span></span>(<span>self, video_id)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Changes the currently playing video to another video in the playlist if it
+                                        exists.
+                                        You'll need to retrieve the argument passed into this using VLCMan.get_id().
+                                        A video's id will look something like this: "/org/videolan/vlc/playlist/5"</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>str</code></strong></dt>
+                                        <dd>Video id.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def change_video(self, video_id):
+    &#34;&#34;&#34; Changes the currently playing video to another video in the playlist if it exists.
+    You&#39;ll need to retrieve the argument passed into this using VLCMan.get_id().
+    A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+    Args:
+        str: Video id.
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    print(video_id)
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.TrackList.GoTo \
+                    objpath:&#34; + video_id], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.create_playlist"><code class="name flex">
+<span>def <span class="ident">create_playlist</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Writes out to .m3u file to create playlist.</p>
+                                    <p>Args:
+                                        None</p>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>bool</code></strong></dt>
+                                        <dd>Returns True if creation was a success or False if failure</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def create_playlist(self) -&gt; bool:
+    &#34;&#34;&#34; Writes out to .m3u file to create playlist.
+
+        Args: 
+            None
+
+        Returns:
+            bool: Returns True if creation was a success or False if failure
+    &#34;&#34;&#34;
+    # open the playlist file and write to it
+    f = open(self.playlist, &#34;w&#34;)
+
+    f.write(&#34;#EXTM3U&#34;)
+    for entry in self.entries:
+        f.write(&#34;\n#EXTINF:0,&#34; + entry)
+        # if the duration is too long, trim the beginning and end
+        if self.get_length(self.folder_path + entry) &gt; self.max_duration:
+            f.write(&#34;\n#EXTVLCOPT:start-time=&#34; +
+                    self.trim_amount + &#34;\n#EXTVLCOPT:stop-time=600&#34;)
+        f.write(&#34;\n&#34; + self.folder_path + &#34;/&#34; + entry)
+    f.close()
+    return True</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.get_id"><code class="name flex">
+<span>def <span class="ident">get_id</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Retrieve the id of the video currently being played.
+                                        A video's id will look something like this: "/org/videolan/vlc/playlist/5"</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>str</code></strong></dt>
+                                        <dd>Video id.</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_id(self) -&gt; str:
+    &#34;&#34;&#34; Retrieve the id of the video currently being played.
+    A video&#39;s id will look something like this: &#34;/org/videolan/vlc/playlist/5&#34;
+
+    Args:
+        None
+
+    Returns:
+        str: Video id.
+    &#34;&#34;&#34;
+    proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                            string:org.mpris.MediaPlayer2.Player \
+                            string:Metadata|egrep -A 1 &#39;mpris:trackid&#39;|cut -b 49-|rev|cut -b 2-|rev|egrep -v ^$&#34;],
+                 shell=True, stdout=PIPE, stderr=PIPE)
+    out, err = proc.communicate()
+    return out.decode(&#39;ascii&#39;).strip()</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.get_length"><code class="name flex">
+<span>def <span class="ident">get_length</span></span>(<span>self, filename)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Retrieve the length of a video (in seconds).</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+                                        <dd>Filename of video.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>float</code></strong></dt>
+                                        <dd>Video length (in seconds).</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_length(self, filename) -&gt; float:
+    &#34;&#34;&#34; Retrieve the length of a video (in seconds).
+
+    Args:
+        filename (str): Filename of video.
+
+    Returns:
+        float: Video length (in seconds).
+    &#34;&#34;&#34;
+    if filename == &#34;&#34;:
+        return 0.0
+    else:
+        return float(check_output([&#34;ffprobe -v error -show_entries \
+                                            format=duration -of \
+                                            default=noprint_wrappers=1:nokey=1 &#34; + filename.replace(&#34; &#34;, &#34;\ &#34;)], shell=True))</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.get_length_of_current"><code class="name flex">
+<span>def <span class="ident">get_length_of_current</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Retrieves the length of the video currently being played (in seconds).</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>float</code></strong></dt>
+                                        <dd>Video length (in seconds).</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_length_of_current(self) -&gt; float:
+    &#34;&#34;&#34; Retrieves the length of the video currently being played (in seconds).
+
+    Args:
+        None
+
+    Returns:
+        float: Video length (in seconds).
+    &#34;&#34;&#34;
+    proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                            string:org.mpris.MediaPlayer2.Player \
+                            string:Metadata|egrep -A 1 \&#34;vlc:length\&#34;|cut -b 42-|egrep -v ^$&#34;],
+                 shell=True, stdout=PIPE, stderr=PIPE)
+    out, err = proc.communicate()
+    return float(out) / 1000</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.get_position"><code class="name flex">
+<span>def <span class="ident">get_position</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Retrieves the current position in the video being played (in seconds).</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>float</code></strong></dt>
+                                        <dd>Video position (in seconds).</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_position(self) -&gt; float:
+    &#34;&#34;&#34; Retrieves the current position in the video being played (in seconds).
+
+    Args:
+        None
+
+    Returns:
+        float: Video position (in seconds).
+    &#34;&#34;&#34;
+    proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                            string:org.mpris.MediaPlayer2.Player \
+                            string:Position|egrep -A 1 &#39;variant&#39;|cut -b 24-&#34;],
+                 shell=True, stdout=PIPE, stderr=PIPE)
+    out, err = proc.communicate()
+    return float(out) / 1000000</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.get_rate"><code class="name flex">
+<span>def <span class="ident">get_rate</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Retrieve the rate the current video is being played at.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>float</code></strong></dt>
+                                        <dd>Video rate.</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def get_rate(self) -&gt; float:
+    &#34;&#34;&#34; Retrieve the rate the current video is being played at.
+
+    Args:
+        None
+
+    Returns:
+        float: Video rate.
+    &#34;&#34;&#34;
+    proc = Popen([&#34;dbus-send --print-reply --dest=org.mpris.MediaPlayer2.vlc \
+                            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
+                            string:org.mpris.MediaPlayer2.Player \
+                            string:Rate|egrep -A 1 &#39;variant&#39;|cut -b 25-&#34;],
+                 shell=True, stdout=PIPE, stderr=PIPE, universal_newlines=True)
+    out, err = proc.communicate()
+
+    return float(out)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.next_video"><code class="name flex">
+<span>def <span class="ident">next_video</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Skips to next video in playlist.
+                                        Also sets the current loop status to playlist.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def next_video(self):
+    &#34;&#34;&#34; Skips to next video in playlist.
+    Also sets the current loop status to playlist.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next&#34;], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.play_pause_video"><code class="name flex">
+<span>def <span class="ident">play_pause_video</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Utilize qdbus to play/pause video.
+                                        If the video is being played, this will pause it. If the video is
+                                        paused, this will play it.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def play_pause_video(self):
+    &#34;&#34;&#34; Utilize qdbus to play/pause video.
+    If the video is being played, this will pause it. If the video is 
+    paused, this will play it.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause&#34;], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.prev_video"><code class="name flex">
+<span>def <span class="ident">prev_video</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Goes back to previous video in playlist.
+                                        Also sets the current loop status to playlist.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def prev_video(self):
+    &#34;&#34;&#34; Goes back to previous video in playlist.
+    Also sets the current loop status to playlist.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous&#34;], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.randomize_videos"><code class="name flex">
+<span>def <span class="ident">randomize_videos</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Randomize the order the videos populate the playlist in.
+                                        Requires: "import random", Requires: "import os"</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>bool</code></strong></dt>
+                                        <dd>The return value. True for success, False otherwise.</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def randomize_videos(self) -&gt; bool:
+    &#34;&#34;&#34; Randomize the order the videos populate the playlist in.
+    Requires: &#34;import random&#34;, Requires: &#34;import os&#34;
+
+    Args:
+        None
+
+    Returns:
+        bool: The return value. True for success, False otherwise.
+    &#34;&#34;&#34;
+    # retrieve video file names and store them in a list
+    self.entries = os.listdir(self.folder_path)
+
+    # Randomize the list of video files
+    random.shuffle(self.entries)
+    for entry in self.entries:
+        print(entry)
+
+    return True</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.reset_rate"><code class="name flex">
+<span>def <span class="ident">reset_rate</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Reverts the rate the current video is being played at back to the default speed
+                                        of 1.0.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def reset_rate(self):
+    &#34;&#34;&#34; Reverts the rate the current video is being played at back to the default speed of 1.0.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                string:org.mpris.MediaPlayer2.Player string:Rate variant:double:1.0&#34;], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.set_loop_playlist"><code class="name flex">
+<span>def <span class="ident">set_loop_playlist</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Set VLC to loop the current playlist if it's currently set to loop the track.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def set_loop_playlist(self):
+    &#34;&#34;&#34; Set VLC to loop the current playlist if it&#39;s currently set to loop the track.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    if self.loop_status == &#34;Track&#34;:
+        self.loop_status = &#34;Playlist&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.set_loop_video"><code class="name flex">
+<span>def <span class="ident">set_loop_video</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Set VLC to loop the current video if it's currently set to loop the playlist.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def set_loop_video(self):
+    &#34;&#34;&#34; Set VLC to loop the current video if it&#39;s currently set to loop the playlist.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    if self.loop_status == &#34;Playlist&#34;:
+        self.loop_status = &#34;Track&#34;
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.set_position"><code class="name flex">
+<span>def <span class="ident">set_position</span></span>(<span>self, track_id, position)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Sets the position of the current video.
+                                        The track_id must be the the id of the track currently being played.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>trackid</code></strong> :&ensp;<code>str</code></dt>
+                                        <dd>id of track to be played, gathered from get_id()</dd>
+                                        <dt><strong><code>position</code></strong> :&ensp;<code>float</code></dt>
+                                        <dd>position of video to start playing in microseconds.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>bool</code></strong></dt>
+                                        <dd>True for success, False for failure</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def set_position(self, track_id, position) -&gt; bool:
+    &#34;&#34;&#34; Sets the position of the current video.
+    The track_id must be the the id of the track currently being played.
+
+    Args:
+        trackid (str): id of track to be played, gathered from get_id()
+        position (float): position of video to start playing in microseconds.
+
+    Returns:
+        bool: True for success, False for failure
+    &#34;&#34;&#34;
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+            /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.SetPosition objpath:&#34; + track_id + &#34; int64:&#34; + str(position)], shell=True)
+    return True</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.set_rate"><code class="name flex">
+<span>def <span class="ident">set_rate</span></span>(<span>self, rate)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Modifies the playback rate of the video currently being played.
+                                        This means that as soon as the video ends, the playback rate of
+                                        VLC will be set back to its default.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>rate</code></strong> :&ensp;<code>double</code></dt>
+                                        <dd>playback rate.</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def set_rate(self, rate):
+    &#34;&#34;&#34; Modifies the playback rate of the video currently being played.
+    This means that as soon as the video ends, the playback rate of 
+    VLC will be set back to its default.
+
+    Args:
+        rate (double): playback rate.
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    new_rate = self.get_rate() + rate
+    if (new_rate &gt;= RATE_MIN) and (new_rate &lt;= RATE_MAX):
+        Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+                    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+                    string:org.mpris.MediaPlayer2.Player string:Rate variant:double:&#34; + str(new_rate)], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.start_vlc"><code class="name flex">
+<span>def <span class="ident">start_vlc</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Boots up VLC from shell with various arguments.
+                                        The various arguments are manipulated within the function itself.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><strong><code>bool</code></strong></dt>
+                                        <dd>True for success, False otherwise.</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def start_vlc(self) -&gt; bool:
+    &#34;&#34;&#34; Boots up VLC from shell with various arguments.
+    The various arguments are manipulated within the function itself.
+
+    Args:
+        None
+
+    Returns:
+        bool: True for success, False otherwise.
+    &#34;&#34;&#34;
+    vlc = &#34;vlc&#34;
+    dummy_vlc = &#34;cvlc&#34;
+    fullscreen = &#34;--fullscreen&#34;
+    mute = &#34;--no-audio&#34;
+    no_title = &#34;--no-video-title-show&#34;
+    anaglyph = &#34;--video-filter=Anaglyph&#34;
+    disable_scroll = &#34;--hotkeys-y-wheel-mode=-1&#34;
+    disable_mouse = &#34;--no-mouse-events&#34;
+    cursor_timeout = &#34;--mouse-hide-timeout=0&#34;
+    disable_network = &#34;--no-qt-privacy-ask&#34;
+    single_instance = &#34;--one-instance&#34;
+    loop = &#34;--loop&#34;
+    
+    if os.path.exists(self.playlist):
+        try:
+            # Start VLC process with specified arguments.
+            # Args can be in whatever order. Only rule is that &#34;vlc&#34; must be at start, and &#34;self.playlist&#34; must be at end.
+            #    Popen([dummy_vlc, anaglyph, fullscreen, mute, no_title, disable_scroll,
+            #           disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+            # For Testing, disable analglyph to check video playback
+            Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                   disable_mouse, disable_network, cursor_timeout, single_instance, self.playlist])
+            return True
+        except:
+            self.eh.log_critical(&#34;VLC could not properly start. Major startup error.&#34;)
+            raise
+    else:
+        Popen([dummy_vlc, fullscreen, mute, no_title, disable_scroll, loop,
+                   disable_mouse, disable_network, cursor_timeout, single_instance])
+        return True</code></pre>
+                                </details>
+                            </dd>
+                            <dt id="VLCMan.VLCMan.toggle_loop_video"><code class="name flex">
+<span>def <span class="ident">toggle_loop_video</span></span>(<span>self)</span>
+</code></dt>
+                            <dd>
+                                <section class="desc">
+                                    <p>Toggles between looping the playlist and looping the video
+                                        currently being played. This loop only occurs if the video hits its end
+                                        time. It will not occur if we manually skip to the next video.</p>
+                                    <p>This option also persists until it's manually changed unlike the
+                                        video rate option.</p>
+                                    <h2 id="args">Args</h2>
+                                    <dl>
+                                        <dt><strong><code>None</code></strong></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                    <h2 id="returns">Returns</h2>
+                                    <dl>
+                                        <dt><code>None</code></dt>
+                                        <dd>&nbsp;</dd>
+                                    </dl>
+                                </section>
+                                <details class="source">
+                                    <summary>
+                                        <span>Expand source code</span>
+                                    </summary>
+                                    <pre><code class="python">def toggle_loop_video(self):
+    &#34;&#34;&#34; Toggles between looping the playlist and looping the video 
+    currently being played. This loop only occurs if the video hits its end 
+    time. It will not occur if we manually skip to the next video.
+
+    This option also persists until it&#39;s manually changed unlike the 
+    video rate option.
+
+    Args:
+        None
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    if self.loop_status == &#34;Playlist&#34;:
+        self.loop_status = &#34;Track&#34;
+    else:
+        self.loop_status = &#34;Playlist&#34;
+
+    Popen([&#34;dbus-send --type=method_call --dest=org.mpris.MediaPlayer2.vlc \
+            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Set \
+            string:org.mpris.MediaPlayer2.Player string:LoopStatus variant:string:&#34; + self.loop_status], shell=True)</code></pre>
+                                </details>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </section>
+        </article>
+        <nav id="sidebar">
+            <h1><a title="DocIndex" href="DocIndex.html">&#8592;Back</a></h1>
+            <h1>Index</h1>
+            <div class="toc">
+                <ul></ul>
+            </div>
+            <ul id="index">
+                <li>
+                    <h3><a href="#header-classes">Classes</a></h3>
+                    <ul>
+                        <li>
+                            <h4><code><a title="VLCMan.VLCMan" href="#VLCMan.VLCMan">VLCMan</a></code></h4>
+                            <ul class="">
+                                <li><code><a title="VLCMan.VLCMan.change_video" href="#VLCMan.VLCMan.change_video">change_video</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.create_playlist" href="#VLCMan.VLCMan.create_playlist">create_playlist</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.get_id" href="#VLCMan.VLCMan.get_id">get_id</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.get_length" href="#VLCMan.VLCMan.get_length">get_length</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.get_length_of_current" href="#VLCMan.VLCMan.get_length_of_current">get_length_of_current</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.get_position" href="#VLCMan.VLCMan.get_position">get_position</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.get_rate" href="#VLCMan.VLCMan.get_rate">get_rate</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.next_video" href="#VLCMan.VLCMan.next_video">next_video</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.play_pause_video" href="#VLCMan.VLCMan.play_pause_video">play_pause_video</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.prev_video" href="#VLCMan.VLCMan.prev_video">prev_video</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.randomize_videos" href="#VLCMan.VLCMan.randomize_videos">randomize_videos</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.reset_rate" href="#VLCMan.VLCMan.reset_rate">reset_rate</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.set_loop_playlist" href="#VLCMan.VLCMan.set_loop_playlist">set_loop_playlist</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.set_loop_video" href="#VLCMan.VLCMan.set_loop_video">set_loop_video</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.set_position" href="#VLCMan.VLCMan.set_position">set_position</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.set_rate" href="#VLCMan.VLCMan.set_rate">set_rate</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.start_vlc" href="#VLCMan.VLCMan.start_vlc">start_vlc</a></code>
+                                </li>
+                                <li><code><a title="VLCMan.VLCMan.toggle_loop_video" href="#VLCMan.VLCMan.toggle_loop_video">toggle_loop_video</a></code>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <footer id="footer">
+        <p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.7.4</a>.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad()</script>
+</body>
+
+</html>
