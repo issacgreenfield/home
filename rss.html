@@ -50,12 +50,52 @@
 
     <!-- Header -->
     <header class="callout d-flex">
+        <div class="container text-center my-auto">
+            <h1 class="mb-1" style="text-shadow: -1px -1px 0 rgb(185, 183, 183)">News</h1>
+            <h3 class="mb-5" style="text-shadow: -1px -1px 0 rgb(185, 183, 183)">
+                <em>Rss Feeds I Track</em>
+            </h3>
+        </div>
+        <div class="overlay"></div>
     </header>
 
     <body>
-        <script language="JavaScript"
-            src="http://www.vanderbilt.edu/asset/feed/feed2js.php?src=https%3A%2F%2Ffeeds.feedburner.com%2Fportlandfoodanddrink%2FSdXY&amp;num=5"
-            type="text/javascript"></script>
+
+        <!-- Rss Feeds -->
+        <section class="content-section bg-light" id="about">
+            <div class="container text-center row">
+                <!-- Food News -->
+                <div class="col-4">
+                    <h2>Food News Feed</h2>
+                    <div class="col-lg-10 mx-auto">
+                        <script language="JavaScript"
+                            src="http://www.vanderbilt.edu/asset/feed/feed2js.php?src=https%3A%2F%2Ffeeds.feedburner.com%2Fportlandfoodanddrink%2FSdXY&amp;num=5"
+                            type="text/javascript"></script>
+                    </div>
+                </div>
+
+                <!-- Local News -->
+                <div class="col-4">
+                    <h2>Local News Feed</h2>
+                    <div class="col-lg-10 mx-auto">
+                        <script language="JavaScript"
+                            src="http://www.vanderbilt.edu/asset/feed/feed2js.php?src=https%3A%2F%2Fopb-opb-sandbox.cdn.arcpublishing.com%2Farcio%2Frss%2F&amp;num=5"
+                            type="text/javascript"></script>
+                    </div>
+                </div>
+
+                <!-- Tech News -->
+                <div class="col-4">
+                    <h2>Tech News Feed</h2>
+                    <div class="col-lg-10 mx-auto">
+                        <script language="JavaScript"
+                            src="http://www.vanderbilt.edu/asset/feed/feed2js.php?src=http%3A%2F%2Ffeeds.bbci.co.uk%2Fnews%2Ftechnology%2Frss.xml&amp;num=5"
+                            type="text/javascript"></script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </body>
 
     <!-- Footer -->
